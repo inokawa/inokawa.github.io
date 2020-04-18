@@ -1,10 +1,11 @@
 import { NextPage } from "next";
+import Layout from "../components/Layout";
 
 const Page: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <p>Hello Next.js</p>
-    </div>
+    </Layout>
   );
 };
 
