@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from "next";
+import Link from "next/link";
 import { readArticles } from "../../utils/article";
 
 type Prop = { contents: { id: string; content: string }[] };
@@ -7,7 +8,9 @@ const Page: NextPage<Prop> = ({ contents }) => {
   return (
     <div>
       {contents.map((d) => (
-        <div>{d.id + " - " + d.content}</div>
+        <Link href={`/blog/${d.id}`}>
+          <div>{d.id + " - " + d.content}</div>
+        </Link>
       ))}
     </div>
   );
