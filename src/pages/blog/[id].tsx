@@ -2,6 +2,7 @@ import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { createHtml } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
 
+type Param = { id: string };
 type Prop = { data: string };
 
 const Page: NextPage<Prop> = ({ data }) => {
@@ -16,17 +17,19 @@ const Page: NextPage<Prop> = ({ data }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const text = readArticle(params?.id as string);
+export const getStaticProps: GetStaticProps<Prop, Param> = async ({
+  params,
+}) => {
+  const text = readArticle(params?.id || "");
   const html = await createHtml(text);
   return {
     props: {
-      data: html.contents,
+      data: html.contents as string,
     },
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Param> = async () => {
   const paths = readArticles();
   return {
     paths: paths.map((d) => ({ params: { id: d.id } })),

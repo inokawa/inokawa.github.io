@@ -16,7 +16,7 @@ const Page: NextPage<Prop> = ({ contents }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Prop> = async () => {
   const posts = readArticles();
   return {
     props: {
