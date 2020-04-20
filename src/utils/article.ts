@@ -3,7 +3,7 @@ import path from "path";
 
 export type Article = { id: string; content: string };
 
-export const readArticle = (id: string) => {
+export const readArticle = (id: string): string => {
   const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
   return fs.readFileSync(filePath, "utf8");
 };
