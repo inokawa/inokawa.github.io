@@ -8,6 +8,21 @@ const headerStyle = {
   padding: SPACING,
 } as const;
 
+const tabAreaStyle = {
+  display: "flex",
+  flex: 1,
+  alignItems: "center",
+} as const;
+
+const iconAreaStyle = {
+  display: "flex",
+  alignItems: "center",
+} as const;
+
+const iconImageStyle = {
+  verticalAlign: "middle",
+} as const;
+
 const LinkTab: React.FC<{ href: string; title: string }> = ({
   href,
   title,
@@ -30,13 +45,21 @@ const LinkTab: React.FC<{ href: string; title: string }> = ({
 const Component: React.FC<{}> = () => {
   return (
     <div style={headerStyle}>
-      <LinkTab href="/" title="Home" />
-      <LinkTab href="/about" title="About" />
-      <Link href="https://github.com/n-inokawa">
-        <a>
-          <img src="/icons/GitHub-Mark-32px.png" alt="GitHub" />
-        </a>
-      </Link>
+      <div style={tabAreaStyle}>
+        <LinkTab href="/" title="Home" />
+        <LinkTab href="/about" title="About" />
+      </div>
+      <div style={iconAreaStyle}>
+        <Link href="https://github.com/n-inokawa">
+          <a>
+            <img
+              style={iconImageStyle}
+              src="/icons/GitHub-Mark-32px.png"
+              alt="GitHub"
+            />
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
