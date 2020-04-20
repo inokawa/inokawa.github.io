@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <style jsx global>{`
+          <style>{`
             body {
               margin: 0;
               padding: 0;
