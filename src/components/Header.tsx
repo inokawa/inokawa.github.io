@@ -17,7 +17,7 @@ const LinkTab: React.FC<{ href: string; title: string }> = ({
       marginRight: 15,
       color: router.pathname === href ? "black" : "gray",
     }),
-    [href]
+    [href, router.pathname]
   );
   return (
     <Link href={href}>
