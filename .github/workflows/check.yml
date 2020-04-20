@@ -22,9 +22,4 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm install
-
-  tsc:
-    runs-on: ubuntu-18.04
-    needs: setup
-    steps:
-      - run: npm run tsc
+      - run: npm run typecheck
