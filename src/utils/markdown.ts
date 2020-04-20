@@ -1,8 +1,14 @@
-import remark from "remark";
+import unified from "unified";
+import markdown from "remark-parse";
 // @ts-ignore
-import html from "remark-html";
+import remark2rehype from "remark-rehype";
+// @ts-ignore
+import html from "rehype-stringify";
 
-const processor = remark().use(html).data("settings", { commonmark: true });
+const processor = unified()
+  .use(markdown, { commonmark: true })
+  .use(remark2rehype)
+  .use(html);
 
 export const createHtml = async (input: string): Promise<string> => {
   const data = await processor.process(input);
