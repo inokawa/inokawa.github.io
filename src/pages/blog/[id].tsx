@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   const html = await createHtml(text);
   return {
     props: {
-      data: html.contents as string,
+      data: html,
     },
   };
 };
