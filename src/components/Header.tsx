@@ -31,6 +31,11 @@ const Component: React.FC<{}> = () => {
     <div style={headerStyle}>
       <LinkTab href="/" title="Home" />
       <LinkTab href="/about" title="About" />
+      <Link href="https://github.com/n-inokawa">
+        <a>
+          <img src="/icons/GitHub-Mark-32px.png" alt="GitHub" />
+        </a>
+      </Link>
     </div>
   );
 };
