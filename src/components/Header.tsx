@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { SPACING } from "../constants/styles";
 
 const headerStyle = {
+  display: "flex",
   padding: SPACING,
 } as const;
 
