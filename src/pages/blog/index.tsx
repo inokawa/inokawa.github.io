@@ -1,13 +1,13 @@
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
-import { readArticles } from "../../utils/article";
+import { readArticles, Article } from "../../utils/article";
 
-type Prop = { contents: { id: string; content: string }[] };
+type Prop = { articles: Article[] };
 
-const Page: NextPage<Prop> = ({ contents }) => {
+const Page: NextPage<Prop> = ({ articles }) => {
   return (
     <div>
-      {contents.map((d) => (
+      {articles.map((d) => (
         <div key={d.id}>
           <Link href={`/blog/${d.id}`}>
             <a>{d.id + " - " + d.content}</a>
@@ -19,10 +19,10 @@ const Page: NextPage<Prop> = ({ contents }) => {
 };
 
 export const getStaticProps: GetStaticProps<Prop> = async () => {
-  const posts = readArticles();
+  const articles = readArticles();
   return {
     props: {
-      contents: posts,
+      articles,
     },
   };
 };

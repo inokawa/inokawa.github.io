@@ -1,12 +1,14 @@
 import fs from "fs";
 import path from "path";
 
+export type Article = { id: string; content: string };
+
 export const readArticle = (id: string) => {
   const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
   return fs.readFileSync(filePath, "utf8");
 };
 
-export const readArticles = () => {
+export const readArticles = (): Article[] => {
   const dirPath = path.join(process.cwd(), "./src/articles");
   const filenames = fs.readdirSync(dirPath);
 
