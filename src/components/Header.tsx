@@ -48,6 +48,7 @@ const Component: React.FC<{}> = () => {
       <div style={tabAreaStyle}>
         <LinkTab href="/" title="Home" />
         <LinkTab href="/about" title="About" />
+        <LinkTab href="/blog" title="Blog" />
       </div>
       <div style={iconAreaStyle}>
         <Link href="https://github.com/n-inokawa">
