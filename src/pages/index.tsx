@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import Header from "../components/Header";
-import Layout from "../components/Layout";
+import Body from "../components/Body";
 
 const Page: NextPage = () => {
   return (
-    <Layout>
+    <Body>
       <Header />
       <p>Hello Next.js</p>
-    </Layout>
+    </Body>
   );
 };
 

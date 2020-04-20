@@ -1,7 +1,7 @@
 const layoutStyle = {
-  margin: 20,
+  width: "100vw",
+  height: "100vh",
   padding: 20,
-  border: "1px solid #DDD",
 };
 
 const Component: React.FC<{}> = ({ children }) => (
