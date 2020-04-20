@@ -7,7 +7,8 @@
     "start": "next start",
     "dev": "next",
     "build": "next build",
-    "export": "next export"
+    "export": "next export",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "next": "^9.3.5",
