@@ -8,7 +8,7 @@ const Page: NextPage<Prop> = ({ contents }) => {
   return (
     <div>
       {contents.map((d) => (
-        <div>
+        <div key={d.id}>
           <Link href={`/blog/${d.id}`}>
             <a>{d.id + " - " + d.content}</a>
           </Link>
