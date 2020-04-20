@@ -9,15 +9,24 @@ const linkStyle = {
   marginRight: 15,
 } as const;
 
-const Component: React.FC<{}> = () => (
-  <div style={headerStyle}>
-    <Link href="/">
-      <a style={linkStyle}>Home</a>
+const LinkTab: React.FC<{ href: string; title: string }> = ({
+  href,
+  title,
+}) => {
+  return (
+    <Link href={href}>
+      <a style={linkStyle}>{title}</a>
     </Link>
-    <Link href="/about">
-      <a style={linkStyle}>About</a>
-    </Link>
-  </div>
-);
+  );
+};
+
+const Component: React.FC<{}> = () => {
+  return (
+    <div style={headerStyle}>
+      <LinkTab href="/" title="Home" />
+      <LinkTab href="/about" title="About" />
+    </div>
+  );
+};
 
 export default Component;
