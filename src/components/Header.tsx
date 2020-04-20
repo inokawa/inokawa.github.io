@@ -1,11 +1,16 @@
 import Link from "next/link";
+import { SPACING } from "../constants/styles";
+
+const headerStyle = {
+  padding: SPACING,
+} as const;
 
 const linkStyle = {
   marginRight: 15,
-};
+} as const;
 
 const Component: React.FC<{}> = () => (
-  <div>
+  <div style={headerStyle}>
     <Link href="/">
       <a style={linkStyle}>Home</a>
     </Link>
