@@ -4,13 +4,27 @@ import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
 // @ts-ignore
 import html from "rehype-stringify";
+import filter from "./remark-contents";
 
 const processor = unified()
   .use(markdown, { commonmark: true })
   .use(remark2rehype)
-  .use(html);
+  .use(html)
+  .freeze();
+
+const contentsProcessor = unified()
+  .use(markdown, { commonmark: true })
+  .use(filter)
+  .use(remark2rehype)
+  .use(html)
+  .freeze();
 
 export const createHtml = async (input: string): Promise<string> => {
-  const data = await processor.process(input);
+  const data = await processor().process(input);
+  return data.contents as string;
+};
+
+export const createContents = async (input: string): Promise<string> => {
+  const data = await contentsProcessor().process(input);
   return data.contents as string;
 };
