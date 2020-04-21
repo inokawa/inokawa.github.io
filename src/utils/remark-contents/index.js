@@ -13,11 +13,9 @@ function filter() {
 function transformer(ast) {
   var root = ast;
   ast = uuParents(ast);
-  var newAst = uuFilter(
-    ast,
-    { cascade: false },
-    (node) => is(node) || (node.type === "text" && is(node.parent))
-  );
+  var newAst = uuFilter(ast, { cascade: false }, function (node) {
+    return is(node) || (node.type === "text" && is(node.parent));
+  });
   if (!newAst || newAst.children.length === 0) {
     return Object.assign({}, root, { children: [] });
   }
