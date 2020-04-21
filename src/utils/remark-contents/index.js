@@ -18,6 +18,9 @@ function transformer(ast) {
     { cascade: false },
     (node) => is(node) || (node.type === "text" && is(node.parent))
   );
+  if (!newAst || newAst.children.length === 0) {
+    return Object.assign({}, root, { children: [] });
+  }
   var t = toc(newAst);
   return Object.assign({}, root, { children: [t.map] });
 }
