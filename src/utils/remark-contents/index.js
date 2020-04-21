@@ -14,7 +14,7 @@ function transformer(ast) {
   var newAst = uuFilter(
     ast,
     { cascade: false },
-    (node) => is(node) || is(node.parent)
+    (node) => is(node) || (node.type === "text" && is(node.parent))
   );
   return newAst;
 }
