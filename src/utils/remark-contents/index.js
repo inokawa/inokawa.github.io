@@ -7,19 +7,18 @@ module.exports = filter;
 
 function filter() {
   return transformer;
+}
 
-  function transformer(ast) {
-    ast = uuParents(ast);
-    var newAst = uuFilter(
-      ast,
-      { cascade: false },
-      (node) => is(node) || is(node.parent)
-    );
+function transformer(ast) {
+  ast = uuParents(ast);
+  var newAst = uuFilter(
+    ast,
+    { cascade: false },
+    (node) => is(node) || is(node.parent)
+  );
+  return newAst;
+}
 
-    return newAst;
-  }
-
-  function is(node) {
-    return node.type === "root" || node.type === "heading";
-  }
+function is(node) {
+  return node.type === "root" || node.type === "heading";
 }
