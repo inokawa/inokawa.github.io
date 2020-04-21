@@ -2,6 +2,7 @@
 
 var uuFilter = require("unist-util-filter");
 var uuParents = require("unist-util-parents");
+var toc = require("mdast-util-toc");
 
 module.exports = filter;
 
@@ -16,7 +17,8 @@ function transformer(ast) {
     { cascade: false },
     (node) => is(node) || (node.type === "text" && is(node.parent))
   );
-  return newAst;
+  var t = toc(newAst);
+  return t.map;
 }
 
 function is(node) {
