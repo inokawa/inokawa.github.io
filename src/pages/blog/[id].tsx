@@ -1,18 +1,33 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { createHtml } from "../../utils/markdown";
+import { createHtml, createContents } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
+import Toc from "../../components/Toc";
 
 type Param = { id: string };
-type Prop = { data: string };
+type Prop = { textHtml: string; tocHtml: string };
 
-const Page: NextPage<Prop> = ({ data }) => {
+const pageStyle = {
+  display: "flex",
+  flex: 1,
+  flexDirection: "row",
+  alignItems: "flex-start",
+  justifyContent: "center",
+} as const;
+
+const textStyle = {
+  flex: 1,
+};
+
+const Page: NextPage<Prop> = ({ textHtml, tocHtml }) => {
   return (
-    <div>
+    <div style={pageStyle}>
       <div
+        style={textStyle}
         dangerouslySetInnerHTML={{
-          __html: data,
+          __html: textHtml,
         }}
       />
+      <Toc html={tocHtml} />
     </div>
   );
 };
@@ -22,9 +37,11 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
 }) => {
   const text = readArticle(params?.id || "");
   const html = await createHtml(text);
+  const toc = await createContents(text);
   return {
     props: {
-      data: html,
+      textHtml: html,
+      tocHtml: toc,
     },
   };
 };
