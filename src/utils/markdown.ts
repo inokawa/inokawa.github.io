@@ -4,7 +4,7 @@ import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
 // @ts-ignore
 import html from "rehype-stringify";
-import filter from "./remark-contents";
+import contents from "remark-contents";
 
 const processor = unified()
   .use(markdown, { commonmark: true })
@@ -14,7 +14,7 @@ const processor = unified()
 
 const contentsProcessor = unified()
   .use(markdown, { commonmark: true })
-  .use(filter)
+  .use(contents)
   .use(remark2rehype)
   .use(html)
   .freeze();
