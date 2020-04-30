@@ -47,9 +47,9 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<Param> = async () => {
-  const paths = readArticles();
+  const articles = readArticles();
   return {
-    paths: paths.map((d) => ({ params: { id: d.id } })),
+    paths: articles.map((d) => ({ params: { id: d.id } })),
     fallback: false,
   };
 };
