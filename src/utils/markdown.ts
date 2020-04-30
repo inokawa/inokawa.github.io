@@ -4,17 +4,20 @@ import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
 // @ts-ignore
 import html from "rehype-stringify";
-import filter from "./remark-contents";
+// @ts-ignore
+import slug from "remark-slug";
+import contents from "remark-contents";
 
 const processor = unified()
   .use(markdown, { commonmark: true })
+  .use(slug)
   .use(remark2rehype)
   .use(html)
   .freeze();
 
 const contentsProcessor = unified()
   .use(markdown, { commonmark: true })
-  .use(filter)
+  .use(contents)
   .use(remark2rehype)
   .use(html)
   .freeze();

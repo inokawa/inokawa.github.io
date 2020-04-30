@@ -11,16 +11,15 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "mdast-util-toc": "^5.0.3",
     "next": "^9.3.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rehype-stringify": "^7.0.0",
+    "remark-contents": "^0.0.1",
     "remark-parse": "^8.0.1",
     "remark-rehype": "^6.0.0",
-    "unified": "^9.0.0",
-    "unist-util-filter": "^2.0.2",
-    "unist-util-parents": "^1.0.3"
+    "remark-slug": "^6.0.0",
+    "unified": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
