@@ -7,6 +7,7 @@ import html from "rehype-stringify";
 // @ts-ignore
 import slug from "remark-slug";
 import contents from "remark-contents";
+import matter, { GrayMatterFile } from "gray-matter";
 
 const processor = unified()
   .use(markdown, { commonmark: true })
@@ -30,4 +31,10 @@ export const createHtml = async (input: string): Promise<string> => {
 export const createContents = async (input: string): Promise<string> => {
   const data = await contentsProcessor().process(input);
   return data.contents as string;
+};
+
+export const extractFrontmatter = (
+  input: string
+): GrayMatterFile<string>["data"] => {
+  return matter(input).data;
 };
