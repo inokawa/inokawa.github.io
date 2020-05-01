@@ -22,6 +22,10 @@ const pageStyle = {
   justifyContent: "center",
 } as const;
 
+const contentStyle = {
+  flex: 1,
+};
+
 const textStyle = {
   flex: 1,
 };
@@ -29,13 +33,17 @@ const textStyle = {
 const Page: NextPage<Prop> = ({ textHtml, tocHtml, frontmatter }) => {
   return (
     <div style={pageStyle}>
-      <div>{frontmatter.title || "notitle"}</div>
-      <div
-        style={textStyle}
-        dangerouslySetInnerHTML={{
-          __html: textHtml,
-        }}
-      />
+      <div style={contentStyle}>
+        <div>
+          <h1>{frontmatter.title || "notitle"}</h1>
+        </div>
+        <div
+          style={textStyle}
+          dangerouslySetInnerHTML={{
+            __html: textHtml,
+          }}
+        />
+      </div>
       <Toc html={tocHtml} />
     </div>
   );
