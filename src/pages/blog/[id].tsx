@@ -35,9 +35,9 @@ const Page: NextPage<Prop> = ({ textHtml, tocHtml }) => {
 export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   params,
 }) => {
-  const text = readArticle(params?.id || "");
-  const html = await createHtml(text);
-  const toc = await createContents(text);
+  const article = readArticle(params?.id || "");
+  const html = await createHtml(article.content);
+  const toc = await createContents(article.content);
   return {
     props: {
       textHtml: html,
@@ -47,9 +47,9 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<Param> = async () => {
-  const paths = readArticles();
+  const articles = readArticles();
   return {
-    paths: paths.map((d) => ({ params: { id: d.id } })),
+    paths: articles.map((d) => ({ params: { id: d.id } })),
     fallback: false,
   };
 };

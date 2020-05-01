@@ -3,9 +3,12 @@ import path from "path";
 
 export type Article = { id: string; content: string };
 
-export const readArticle = (id: string): string => {
+export const readArticle = (id: string): Article => {
   const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
-  return fs.readFileSync(filePath, "utf8");
+  return {
+    id,
+    content: fs.readFileSync(filePath, "utf8"),
+  };
 };
 
 export const readArticles = (): Article[] => {
