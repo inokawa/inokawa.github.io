@@ -5,6 +5,7 @@ import {
   extractFrontmatter,
 } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
+import Article from "../../components/Article";
 import Toc from "../../components/Toc";
 
 type Param = { id: string };
@@ -26,10 +27,6 @@ const contentStyle = {
   flex: 1,
 };
 
-const textStyle = {
-  flex: 1,
-};
-
 const Page: NextPage<Prop> = ({ textHtml, tocHtml, frontmatter }) => {
   return (
     <div style={pageStyle}>
@@ -37,12 +34,7 @@ const Page: NextPage<Prop> = ({ textHtml, tocHtml, frontmatter }) => {
         <div>
           <h1>{frontmatter.title || "notitle"}</h1>
         </div>
-        <div
-          style={textStyle}
-          dangerouslySetInnerHTML={{
-            __html: textHtml,
-          }}
-        />
+        <Article html={textHtml} />
       </div>
       <Toc html={tocHtml} />
     </div>
