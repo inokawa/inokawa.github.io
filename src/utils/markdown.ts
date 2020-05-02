@@ -12,7 +12,7 @@ import matter, { GrayMatterFile } from "gray-matter";
 import React from "react";
 import filter from "./unistFilter";
 
-export const createReactElement = (input: string): React.ReactElement => {
+export const createContentReact = (mdText: string): React.ReactElement => {
   const processor = unified()
     .use(markdown, { commonmark: true })
     .use(frontmatter, ["yaml", "toml"])
@@ -21,23 +21,23 @@ export const createReactElement = (input: string): React.ReactElement => {
     .use(remark2rehype)
     .use(rehype2react, { createElement: React.createElement });
 
-  const data = processor().processSync(input);
+  const data = processor().processSync(mdText);
   return (data as any).result as React.ReactElement;
 };
 
-export const createContents = (input: string): React.ReactElement => {
+export const createTocReact = (mdText: string): React.ReactElement => {
   const processor = unified()
     .use(markdown, { commonmark: true })
     .use(contents)
     .use(remark2rehype)
     .use(rehype2react, { createElement: React.createElement });
 
-  const data = processor().processSync(input);
+  const data = processor().processSync(mdText);
   return (data as any).result as React.ReactElement;
 };
 
 export const extractFrontmatter = (
-  input: string
+  mdText: string
 ): GrayMatterFile<string>["data"] => {
-  return matter(input).data;
+  return matter(mdText).data;
 };

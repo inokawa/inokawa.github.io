@@ -1,4 +1,4 @@
-import { createContents } from "../utils/markdown";
+import { createTocReact } from "../utils/markdown";
 
 const tocStyle = {
   position: "fixed", // FIXME
@@ -8,7 +8,7 @@ const tocStyle = {
 } as const;
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
-  return <div style={tocStyle}>{createContents(md)}</div>;
+  return <div style={tocStyle}>{createTocReact(md)}</div>;
 };
 
 export default Component;
