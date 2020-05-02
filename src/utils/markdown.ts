@@ -31,12 +31,15 @@ export const createContentReact = (
   return (data as any).result as React.ReactElement;
 };
 
-export const createTocReact = (mdText: string): React.ReactElement => {
+export const createTocReact = (
+  mdText: string,
+  components: { [key: string]: React.ReactNode }
+): React.ReactElement => {
   const processor = unified()
     .use(markdown, { commonmark: true })
     .use(contents)
     .use(remark2rehype)
-    .use(rehype2react, { createElement: React.createElement });
+    .use(rehype2react, { createElement: React.createElement, components });
 
   const data = processor().processSync(mdText);
   return (data as any).result as React.ReactElement;
