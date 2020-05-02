@@ -6,7 +6,7 @@ import Toc from "../../components/Toc";
 
 type Param = { id: string };
 type Prop = {
-  textMd: string;
+  mdText: string;
   frontmatter: { [key: string]: any };
 };
 
@@ -22,16 +22,16 @@ const contentStyle = {
   flex: 1,
 };
 
-const Page: NextPage<Prop> = ({ textMd, frontmatter }) => {
+const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
     <div style={pageStyle}>
       <div style={contentStyle}>
         <div>
           <h1>{frontmatter.title || "notitle"}</h1>
         </div>
-        <Article md={textMd} />
+        <Article md={mdText} />
       </div>
-      <Toc md={textMd} />
+      <Toc md={mdText} />
     </div>
   );
 };
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   const article = readArticle(params?.id || "");
   return {
     props: {
-      textMd: article.content,
+      mdText: article.content,
       frontmatter: extractFrontmatter(article.content),
     },
   };
