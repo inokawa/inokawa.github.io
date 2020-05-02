@@ -1,4 +1,5 @@
 import { SPACING } from "../constants/styles";
+import Tag from "./Tag";
 
 const Component: React.FC<{ frontmatter: { [key: string]: any } }> = ({
   frontmatter,
@@ -6,6 +7,9 @@ const Component: React.FC<{ frontmatter: { [key: string]: any } }> = ({
   return (
     <div className="header">
       <h1>{frontmatter.title || "notitle"}</h1>
+      {(frontmatter.categories || []).map((c: any) => (
+        <Tag>{c}</Tag>
+      ))}
       <style jsx>
         {`
           .header {
