@@ -8,6 +8,8 @@ import rehype2react from "rehype-react";
 import slug from "remark-slug";
 import contents from "remark-contents";
 import frontmatter from "remark-frontmatter";
+// @ts-ignore
+import highlight from "rehype-highlight";
 import matter, { GrayMatterFile } from "gray-matter";
 import React from "react";
 import filter from "./unistFilter";
@@ -22,6 +24,7 @@ export const createContentReact = (
     .use(slug)
     .use(filter, ["yaml", "toml"])
     .use(remark2rehype)
+    .use(highlight)
     .use(rehype2react, {
       createElement: React.createElement,
       components,
