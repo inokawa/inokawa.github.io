@@ -29,8 +29,8 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
         a {
           display: block;
           background-color: ${COLOR.LIGHT_GRAY};
-          padding: ${SPACING / 2}px;
-          margin: ${SPACING / 2}px;
+          padding: ${SPACING}px;
+          margin: ${SPACING}px;
           border-radius: ${BORDER_RADIUS}px;
           text-decoration: none;
           color: ${COLOR.BLACK};

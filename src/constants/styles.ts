@@ -1,4 +1,4 @@
-export const SPACING = 20 as const;
+export const SPACING = 10 as const;
 export const BORDER_RADIUS = 4 as const;
 export const BORDER_WIDTH = 1 as const;
 export const COLOR = {

@@ -47,8 +47,8 @@ const Component: React.FC<{}> = () => {
             position: sticky;
             top: 0px;
             display: flex;
-            padding-top: ${SPACING}px;
-            padding-bottom: ${SPACING}px;
+            padding-top: ${SPACING * 2}px;
+            padding-bottom: ${SPACING * 2}px;
           }
           .tab-area {
             display: flex;

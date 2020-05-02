@@ -8,9 +8,9 @@ const Component: React.FC<{}> = ({ children }) => (
         div {
           flex: 1;
           padding-top: 0px;
-          padding-bottom: ${SPACING}px;
-          padding-left: ${SPACING}px;
-          padding-right: ${SPACING}px;
+          padding-bottom: ${SPACING * 2}px;
+          padding-left: ${SPACING * 2}px;
+          padding-right: ${SPACING * 2}px;
         }
       `}
     </style>
