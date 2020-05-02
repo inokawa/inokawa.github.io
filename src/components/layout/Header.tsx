@@ -30,17 +30,6 @@ const Component: React.FC<{}> = () => {
         <LinkTab href="/about" title="About" />
         <LinkTab href="/blog" title="Blog" />
       </div>
-      <div className="icon-area">
-        <Link href="//github.com/n-inokawa">
-          <a>
-            <img
-              className="icon-image"
-              src="/icons/GitHub-Mark-32px.png"
-              alt="GitHub"
-            />
-          </a>
-        </Link>
-      </div>
       <style jsx>
         {`
           .header {
@@ -54,13 +43,6 @@ const Component: React.FC<{}> = () => {
             display: flex;
             flex: 1;
             align-items: center;
-          }
-          .icon-area {
-            display: flex;
-            align-items: center;
-          }
-          .icon-image {
-            vertical-align: middle;
           }
         `}
       </style>
