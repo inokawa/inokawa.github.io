@@ -45,6 +45,12 @@ export default class MyDocument extends Document {
               background: ${COLOR.PRIMARY_LIGHT};
             }
             
+            blockquote {
+              display: block;
+              border-left: solid 4px ${COLOR.GRAY};
+              padding: ${SPACING}px;
+              margin: 0;
+            }
             code {
               background-color: ${COLOR.LIGHT_GRAY};
               border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
