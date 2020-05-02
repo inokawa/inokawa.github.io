@@ -1,5 +1,6 @@
 import React from "react";
 import { AppProps } from "next/app";
+import "normalize.css";
 import "highlight.js/styles/vs2015.css";
 import Wrapper from "../components/Wrapper";
 import Header from "../components/Header";
