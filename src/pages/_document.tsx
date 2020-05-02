@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
               font-size: 18px;
               font-weight: 400;
               line-height: 1.8;
-              color: #333;
+              color: ${COLOR.BLACK};
               font-family: sans-serif;
             }
             

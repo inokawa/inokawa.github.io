@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SPACING } from "../constants/styles";
+import { SPACING, COLOR } from "../constants/styles";
 
 const LinkTab: React.FC<{ href: string; title: string }> = ({
   href,
@@ -11,7 +11,7 @@ const LinkTab: React.FC<{ href: string; title: string }> = ({
   const style = React.useMemo(
     () => ({
       marginRight: 15,
-      color: router.pathname === href ? "black" : "gray",
+      color: router.pathname === href ? COLOR.BLACK : COLOR.GRAY,
     }),
     [href, router.pathname]
   );
