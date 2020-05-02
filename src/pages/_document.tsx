@@ -57,6 +57,14 @@ export default class MyDocument extends Document {
               border-radius: ${BORDER_RADIUS}px;
               padding: ${SPACING / 2}px;
             }
+            table {
+              border-collapse: collapse;
+              margin: ${SPACING / 2}px;
+            }
+            td,th{
+              border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
+              padding: ${SPACING / 2}px;
+            }
           `}</style>
         </Head>
         <body>
