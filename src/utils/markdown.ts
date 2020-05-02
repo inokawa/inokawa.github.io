@@ -11,6 +11,7 @@ import frontmatter from "remark-frontmatter";
 import matter, { GrayMatterFile } from "gray-matter";
 import React from "react";
 import filter from "./unistFilter";
+import Code from "../components/markdown/Code";
 
 export const createContentReact = (mdText: string): React.ReactElement => {
   const processor = unified()
@@ -19,7 +20,10 @@ export const createContentReact = (mdText: string): React.ReactElement => {
     .use(slug)
     .use(filter, ["yaml", "toml"])
     .use(remark2rehype)
-    .use(rehype2react, { createElement: React.createElement });
+    .use(rehype2react, {
+      createElement: React.createElement,
+      components: { code: Code },
+    });
 
   const data = processor().processSync(mdText);
   return (data as any).result as React.ReactElement;
