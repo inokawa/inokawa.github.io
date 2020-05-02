@@ -6,37 +6,85 @@ comments: true
 categories: [JavaScript, React]
 ---
 
+# heading 1
+
+## heading 2
+
+### heading 3
+
+#### heading 4
+
+##### heading 5
+
+###### heading 6
+
 # Test
 
-ああああ
+あああああああああ
+**ああああああああああ**
+~~あああああああああ~~
+
+- list
+
+  - list
+    - list
+  - list
+  - list
+
+- [ ] check
+- [x] check
+
+1. list
+1. list
+1. list
 
 ## bbbb
 
+[GitHub.com](https://github.com/)
+
 aa
+
+`aaaaa`
+
+> 引用
+
+> > 引用
+
+| Left align | Right align | Center align |
+| :--------- | ----------: | :----------: |
+| This       |        This |     This     |
+| column     |      column |    column    |
+| will       |        will |     will     |
+| be         |          be |      be      |
+| left       |       right |    center    |
+| aligned    |     aligned |   aligned    |
 
 ## cccc
 
-`aaa`
+---
 
-```
-aaa
-```
+border
+
+---
 
 ```css
 @font-face {
-  font-family: Chunkfive; src: url('Chunkfive.otf');
+  font-family: Chunkfive;
+  src: url("Chunkfive.otf");
 }
 
-body, .usertext {
-  color: #F0F0F0; background: #600;
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
   font-family: Chunkfive, sans;
   --heading-1: 30px/32px Helvetica, sans-serif;
 }
 
 @import url(print.css);
 @media print {
-  a[href^=http]::after {
-    content: attr(href)
+  a[href^="http"]::after {
+    content: attr(href);
   }
 }
 ```
