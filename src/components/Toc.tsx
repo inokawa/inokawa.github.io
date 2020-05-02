@@ -1,11 +1,6 @@
 import React from "react";
 import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
-import {
-  SPACING,
-  COLOR_LIGHT_GRAY,
-  BORDER_RADIUS,
-  COLOR_BLACK,
-} from "../constants/styles";
+import { SPACING, BORDER_RADIUS, COLOR } from "../constants/styles";
 import Link from "next/link";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
@@ -33,12 +28,12 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
         }
         a {
           display: block;
-          background-color: ${COLOR_LIGHT_GRAY};
+          background-color: ${COLOR.LIGHT_GRAY};
           padding: ${SPACING / 2}px;
           margin: ${SPACING / 2}px;
           border-radius: ${BORDER_RADIUS}px;
           text-decoration: none;
-          color: ${COLOR_BLACK};
+          color: ${COLOR.BLACK};
 
           transition: all 0.1s ease-in-out;
         }

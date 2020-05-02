@@ -1,7 +1,7 @@
 import {
   BORDER_RADIUS,
   BORDER_WIDTH,
-  COLOR_GRAY,
+  COLOR,
   SPACING,
 } from "../constants/styles";
 
@@ -12,7 +12,7 @@ const Component: React.FC<{}> = ({ children }) => (
       {`
         div {
           flex: 1;
-          border: solid ${BORDER_WIDTH}px ${COLOR_GRAY};
+          border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
           border-radius: ${BORDER_RADIUS}px;
           padding-top: ${SPACING * 4}px;
           padding-bottom: ${SPACING * 4}px;

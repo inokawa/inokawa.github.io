@@ -9,8 +9,7 @@ import {
   BORDER_RADIUS,
   BORDER_WIDTH,
   SPACING,
-  COLOR_GRAY,
-  COLOR_LIGHT_GRAY,
+  COLOR,
 } from "../constants/styles";
 
 export default class MyDocument extends Document {
@@ -35,8 +34,8 @@ export default class MyDocument extends Document {
             }
             
             code {
-              background-color: ${COLOR_LIGHT_GRAY};
-              border: solid ${BORDER_WIDTH}px ${COLOR_GRAY};
+              background-color: ${COLOR.LIGHT_GRAY};
+              border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
               border-radius: ${BORDER_RADIUS}px;
               padding: ${SPACING / 2}px;
             }
