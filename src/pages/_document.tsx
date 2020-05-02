@@ -32,6 +32,12 @@ export default class MyDocument extends Document {
               color: ${COLOR.BLACK};
               font-family: sans-serif;
             }
+            a {
+              color: ${COLOR.PRIMARY};
+            }
+            a:visited {
+              color: ${COLOR.PRIMARY_LIGHT};
+            }
             
             code {
               background-color: ${COLOR.LIGHT_GRAY};
