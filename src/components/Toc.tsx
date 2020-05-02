@@ -1,3 +1,5 @@
+import { createTocReact } from "../utils/markdown";
+
 const tocStyle = {
   position: "fixed", // FIXME
   top: 100,
@@ -5,15 +7,8 @@ const tocStyle = {
   width: 300,
 } as const;
 
-const Component: React.FC<{ html: string }> = ({ html }) => {
-  return (
-    <div
-      style={tocStyle}
-      dangerouslySetInnerHTML={{
-        __html: html,
-      }}
-    />
-  );
+const Component: React.FC<{ md: string }> = ({ md }) => {
+  return <div style={tocStyle}>{createTocReact(md)}</div>;
 };
 
 export default Component;

@@ -1,16 +1,12 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import {
-  createHtml,
-  createContents,
-  extractFrontmatter,
-} from "../../utils/markdown";
+import { extractFrontmatter } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
+import Article from "../../components/Article";
 import Toc from "../../components/Toc";
 
 type Param = { id: string };
 type Prop = {
-  textHtml: string;
-  tocHtml: string;
+  mdText: string;
   frontmatter: { [key: string]: any };
 };
 
@@ -26,25 +22,16 @@ const contentStyle = {
   flex: 1,
 };
 
-const textStyle = {
-  flex: 1,
-};
-
-const Page: NextPage<Prop> = ({ textHtml, tocHtml, frontmatter }) => {
+const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
     <div style={pageStyle}>
       <div style={contentStyle}>
         <div>
           <h1>{frontmatter.title || "notitle"}</h1>
         </div>
-        <div
-          style={textStyle}
-          dangerouslySetInnerHTML={{
-            __html: textHtml,
-          }}
-        />
+        <Article md={mdText} />
       </div>
-      <Toc html={tocHtml} />
+      <Toc md={mdText} />
     </div>
   );
 };
@@ -53,12 +40,9 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   params,
 }) => {
   const article = readArticle(params?.id || "");
-  const html = await createHtml(article.content);
-  const toc = await createContents(article.content);
   return {
     props: {
-      textHtml: html,
-      tocHtml: toc,
+      mdText: article.content,
       frontmatter: extractFrontmatter(article.content),
     },
   };

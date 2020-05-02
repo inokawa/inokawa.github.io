@@ -3,42 +3,41 @@ import markdown from "remark-parse";
 // @ts-ignore
 import remark2rehype from "remark-rehype";
 // @ts-ignore
-import html from "rehype-stringify";
+import rehype2react from "rehype-react";
 // @ts-ignore
 import slug from "remark-slug";
 import contents from "remark-contents";
 import frontmatter from "remark-frontmatter";
 import matter, { GrayMatterFile } from "gray-matter";
+import React from "react";
 import filter from "./unistFilter";
 
-const processor = unified()
-  .use(markdown, { commonmark: true })
-  .use(frontmatter, ["yaml", "toml"])
-  .use(slug)
-  .use(filter, ["yaml", "toml"])
-  .use(remark2rehype)
-  .use(html)
-  .freeze();
+export const createContentReact = (mdText: string): React.ReactElement => {
+  const processor = unified()
+    .use(markdown, { commonmark: true })
+    .use(frontmatter, ["yaml", "toml"])
+    .use(slug)
+    .use(filter, ["yaml", "toml"])
+    .use(remark2rehype)
+    .use(rehype2react, { createElement: React.createElement });
 
-const contentsProcessor = unified()
-  .use(markdown, { commonmark: true })
-  .use(contents)
-  .use(remark2rehype)
-  .use(html)
-  .freeze();
-
-export const createHtml = async (input: string): Promise<string> => {
-  const data = await processor().process(input);
-  return data.contents as string;
+  const data = processor().processSync(mdText);
+  return (data as any).result as React.ReactElement;
 };
 
-export const createContents = async (input: string): Promise<string> => {
-  const data = await contentsProcessor().process(input);
-  return data.contents as string;
+export const createTocReact = (mdText: string): React.ReactElement => {
+  const processor = unified()
+    .use(markdown, { commonmark: true })
+    .use(contents)
+    .use(remark2rehype)
+    .use(rehype2react, { createElement: React.createElement });
+
+  const data = processor().processSync(mdText);
+  return (data as any).result as React.ReactElement;
 };
 
 export const extractFrontmatter = (
-  input: string
+  mdText: string
 ): GrayMatterFile<string>["data"] => {
-  return matter(input).data;
+  return matter(mdText).data;
 };
