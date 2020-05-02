@@ -23,13 +23,6 @@ const processor = unified()
   .use(html)
   .freeze();
 
-const contentsProcessor = unified()
-  .use(markdown, { commonmark: true })
-  .use(contents)
-  .use(remark2rehype)
-  .use(html)
-  .freeze();
-
 export const createHtml = async (input: string): Promise<string> => {
   const data = await processor().process(input);
   return data.contents as string;
@@ -48,9 +41,15 @@ export const createReactElement = (input: string): React.ReactElement => {
   return (data as any).result as React.ReactElement;
 };
 
-export const createContents = async (input: string): Promise<string> => {
-  const data = await contentsProcessor().process(input);
-  return data.contents as string;
+export const createContents = (input: string): React.ReactElement => {
+  const processor = unified()
+    .use(markdown, { commonmark: true })
+    .use(contents)
+    .use(remark2rehype)
+    .use(rehype2react, { createElement: React.createElement });
+
+  const data = processor().processSync(input);
+  return (data as any).result as React.ReactElement;
 };
 
 export const extractFrontmatter = (
