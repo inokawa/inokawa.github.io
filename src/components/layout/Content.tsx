@@ -1,4 +1,4 @@
-import { SPACING } from "../constants/styles";
+import { SPACING } from "../../constants/styles";
 
 const Component: React.FC<{}> = ({ children }) => (
   <div>

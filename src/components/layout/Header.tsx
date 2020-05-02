@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SPACING, COLOR } from "../constants/styles";
+import { SPACING, COLOR } from "../../constants/styles";
 
 const LinkTab: React.FC<{ href: string; title: string }> = ({
   href,
