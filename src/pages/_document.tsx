@@ -39,6 +39,11 @@ export default class MyDocument extends Document {
               color: ${COLOR.PRIMARY_LIGHT};
             }
             
+            ::selection {
+              color: white;
+              background: ${COLOR.PRIMARY_LIGHT};
+            }
+            
             code {
               background-color: ${COLOR.LIGHT_GRAY};
               border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
