@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { extractFrontmatter } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
+import ArticleHeader from "../../components/ArticleHeader";
 import Article from "../../components/Article";
 import ArticleWrapper from "../../components/ArticleWrapper";
 import Toc from "../../components/Toc";
@@ -24,9 +25,7 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
     <div style={pageStyle}>
       <ArticleWrapper>
-        <div>
-          <h1>{frontmatter.title || "notitle"}</h1>
-        </div>
+        <ArticleHeader frontmatter={frontmatter} />
         <Article md={mdText} />
       </ArticleWrapper>
       </div>
