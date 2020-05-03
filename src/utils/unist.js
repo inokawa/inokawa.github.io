@@ -2,9 +2,7 @@
 
 var uuFilter = require("unist-util-filter");
 
-module.exports = filter;
-
-function filter(types) {
+export function remove(types) {
   return transformer;
 
   function transformer(ast) {

@@ -12,7 +12,7 @@ import frontmatter from "remark-frontmatter";
 import highlight from "rehype-highlight";
 import matter, { GrayMatterFile } from "gray-matter";
 import React from "react";
-import filter from "./unistFilter";
+import { remove } from "./unist";
 
 export const createContentReact = (
   mdText: string,
@@ -22,7 +22,7 @@ export const createContentReact = (
     .use(markdown, { commonmark: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
-    .use(filter, ["yaml", "toml"])
+    .use(remove, ["yaml", "toml"])
     .use(remark2rehype)
     .use(highlight)
     .use(rehype2react, {
