@@ -5,6 +5,13 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import {
+  BORDER_RADIUS,
+  BORDER_WIDTH,
+  SPACING,
+  COLOR_GRAY,
+  COLOR_LIGHT_GRAY,
+} from "../constants/styles";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -31,6 +38,13 @@ export default class MyDocument extends Document {
             }
             p {
               margin-bottom: 10px;
+            }
+            
+            code {
+              background-color: ${COLOR_LIGHT_GRAY};
+              border: solid ${BORDER_WIDTH}px ${COLOR_GRAY};
+              border-radius: ${BORDER_RADIUS}px;
+              padding: ${SPACING / 2}px;
             }
           `}</style>
         </Head>

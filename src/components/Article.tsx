@@ -5,7 +5,7 @@ const textStyle = {
 };
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
-  return <div style={textStyle}>{createContentReact(md)}</div>;
+  return <div style={textStyle}>{createContentReact(md, {})}</div>;
 };
 
 export default Component;

@@ -8,7 +8,7 @@ const tocStyle = {
 } as const;
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
-  return <div style={tocStyle}>{createTocReact(md)}</div>;
+  return <div style={tocStyle}>{createTocReact(md, {})}</div>;
 };
 
 export default Component;
