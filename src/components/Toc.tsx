@@ -1,3 +1,4 @@
+import React from "react";
 import { createTocReact } from "../utils/markdown";
 import { SPACING, COLOR_LIGHT_GRAY, BORDER_RADIUS } from "../constants/styles";
 
@@ -41,19 +42,25 @@ const Li: React.FC<{}> = ({ children }) => (
 const P: React.FC<{}> = ({ children }) => <>{children}</>;
 
 const A: React.FC<{}> = ({ children }) => (
-  <div>
+  <a>
     {children}
     <style jsx>
       {`
-        div {
+        a {
+          display: block;
           background-color: ${COLOR_LIGHT_GRAY};
           padding: ${SPACING / 2}px;
           margin: ${SPACING / 2}px;
           border-radius: ${BORDER_RADIUS}px;
+
+          transition: all 0.1s ease-in-out;
+        }
+        a:hover {
+          filter: opacity(50%);
         }
       `}
     </style>
-  </div>
+  </a>
 );
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
