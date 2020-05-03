@@ -17,9 +17,8 @@ const pageStyle = {
   flex: 1,
   flexDirection: "row",
   alignItems: "flex-start",
-  justifyContent: "center",
+  justifyContent: "space-around",
 } as const;
-
 
 const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
@@ -28,7 +27,6 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
         <ArticleHeader frontmatter={frontmatter} />
         <Article md={mdText} />
       </ArticleWrapper>
-      </div>
       <Toc md={mdText} />
     </div>
   );
