@@ -2,6 +2,7 @@ import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { extractFrontmatter } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
 import Article from "../../components/Article";
+import ArticleWrapper from "../../components/ArticleWrapper";
 import Toc from "../../components/Toc";
 
 type Param = { id: string };
@@ -18,18 +19,16 @@ const pageStyle = {
   justifyContent: "center",
 } as const;
 
-const contentStyle = {
-  flex: 1,
-};
 
 const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
     <div style={pageStyle}>
-      <div style={contentStyle}>
+      <ArticleWrapper>
         <div>
           <h1>{frontmatter.title || "notitle"}</h1>
         </div>
         <Article md={mdText} />
+      </ArticleWrapper>
       </div>
       <Toc md={mdText} />
     </div>
