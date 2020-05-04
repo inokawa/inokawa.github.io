@@ -9,9 +9,12 @@ const tocStyle = {
   width: 300,
 } as const;
 
-const Ul: React.FC<{}> = ({ children }) => (
+const createNode = (node: Toc): React.ReactNode => (
   <ul>
-    {children}
+    <li>
+      <a>{`${node.value}`}</a>
+      {node.children.map(createNode)}
+    </li>
     <style jsx>
       {`
         ul {
@@ -21,29 +24,9 @@ const Ul: React.FC<{}> = ({ children }) => (
           padding-right: 0px;
           padding-left: ${SPACING}px;
         }
-      `}
-    </style>
-  </ul>
-);
-
-const Li: React.FC<{}> = ({ children }) => (
-  <li>
-    {children}
-    <style jsx>
-      {`
         li {
           list-style-type: none;
         }
-      `}
-    </style>
-  </li>
-);
-
-const A: React.FC<{}> = ({ children }) => (
-  <a>
-    {children}
-    <style jsx>
-      {`
         a {
           display: block;
           background-color: ${COLOR_LIGHT_GRAY};
@@ -58,16 +41,7 @@ const A: React.FC<{}> = ({ children }) => (
         }
       `}
     </style>
-  </a>
-);
-
-const createNode = (node: Toc): React.ReactNode => (
-  <Ul>
-    <Li>
-      <A>{`${node.value}`}</A>
-      {node.children.map(createNode)}
-    </Li>
-  </Ul>
+  </ul>
 );
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
