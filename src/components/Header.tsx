@@ -51,7 +51,7 @@ const Component: React.FC<{}> = () => {
         <LinkTab href="/blog" title="Blog" />
       </div>
       <div style={iconAreaStyle}>
-        <Link href="https://github.com/n-inokawa">
+        <Link href="//github.com/n-inokawa">
           <a>
             <img
               style={iconImageStyle}
