@@ -33,12 +33,6 @@ export default class MyDocument extends Document {
               color: #333;
               font-family: sans-serif;
             }
-            h1 {
-              font-weight: 700;
-            }
-            p {
-              margin-bottom: 10px;
-            }
             
             code {
               background-color: ${COLOR_LIGHT_GRAY};

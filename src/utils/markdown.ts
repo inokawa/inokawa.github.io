@@ -6,13 +6,14 @@ import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
 // @ts-ignore
 import slug from "remark-slug";
-import contents from "remark-contents";
+// @ts-ignore
+import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
 // @ts-ignore
 import highlight from "rehype-highlight";
 import matter, { GrayMatterFile } from "gray-matter";
 import React from "react";
-import filter from "./unistFilter";
+import { remove } from "./unist";
 
 export const createContentReact = (
   mdText: string,
@@ -22,7 +23,7 @@ export const createContentReact = (
     .use(markdown, { commonmark: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
-    .use(filter, ["yaml", "toml"])
+    .use(remove, ["yaml", "toml"])
     .use(remark2rehype)
     .use(highlight)
     .use(rehype2react, {
@@ -34,19 +35,30 @@ export const createContentReact = (
   return (data as any).result as React.ReactElement;
 };
 
-export const createTocReact = (
-  mdText: string,
-  components: { [key: string]: React.ReactNode }
-): React.ReactElement => {
+export type Toc = {
+  depth: number;
+  value: string;
+  children: Toc[];
+  data: { id: string };
+};
+
+export const extractToc = (mdText: string): Toc[] => {
   const processor = unified()
     .use(markdown, { commonmark: true })
-    .use(contents)
-    .use(remark2rehype)
-    .use(rehype2react, { createElement: React.createElement, components });
+    .use(slug)
+    .use(toc, { keys: ["data"] });
 
-  const data = processor().processSync(mdText);
-  return (data as any).result as React.ReactElement;
+  const node = processor().parse(mdText);
+  const data = processor().runSync(node);
+  return (data as any) as Toc[];
 };
+
+export const extractIdFromToc = (nodes: Toc[]): string[] =>
+  nodes.reduce<string[]>((acc, node) => {
+    acc.push(node.data.id);
+    acc.push(...extractIdFromToc(node.children));
+    return acc;
+  }, []);
 
 export const extractFrontmatter = (
   mdText: string

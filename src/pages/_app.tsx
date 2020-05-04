@@ -8,8 +8,8 @@ import Content from "../components/Content";
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Wrapper>
-      <Header />
       <Content>
+        <Header />
         <Component {...pageProps} />
       </Content>
     </Wrapper>
