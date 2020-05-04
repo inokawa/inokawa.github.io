@@ -1,5 +1,5 @@
 import React from "react";
-import { createTocReact } from "../utils/markdown";
+import { extractToc, Toc } from "../utils/markdown";
 import { SPACING, COLOR_LIGHT_GRAY, BORDER_RADIUS } from "../constants/styles";
 
 const tocStyle = {
@@ -39,8 +39,6 @@ const Li: React.FC<{}> = ({ children }) => (
   </li>
 );
 
-const P: React.FC<{}> = ({ children }) => <>{children}</>;
-
 const A: React.FC<{}> = ({ children }) => (
   <a>
     {children}
@@ -63,17 +61,19 @@ const A: React.FC<{}> = ({ children }) => (
   </a>
 );
 
+const createNode = (node: Toc): React.ReactNode => (
+  <Ul>
+    <Li>
+      <A>{`${node.value}`}</A>
+      {node.children.map(createNode)}
+    </Li>
+  </Ul>
+);
+
 const Component: React.FC<{ md: string }> = ({ md }) => {
-  return (
-    <nav style={tocStyle}>
-      {createTocReact(md, {
-        ul: Ul,
-        li: Li,
-        p: P,
-        a: A,
-      })}
-    </nav>
-  );
+  const nodes = extractToc(md);
+
+  return <nav style={tocStyle}>{nodes.map(createNode)}</nav>;
 };
 
 export default Component;

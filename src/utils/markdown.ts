@@ -6,7 +6,7 @@ import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
 // @ts-ignore
 import slug from "remark-slug";
-import contents from "remark-contents";
+import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
 // @ts-ignore
 import highlight from "rehype-highlight";
@@ -34,18 +34,18 @@ export const createContentReact = (
   return (data as any).result as React.ReactElement;
 };
 
-export const createTocReact = (
-  mdText: string,
-  components: { [key: string]: React.ReactNode }
-): React.ReactElement => {
-  const processor = unified()
-    .use(markdown, { commonmark: true })
-    .use(contents)
-    .use(remark2rehype)
-    .use(rehype2react, { createElement: React.createElement, components });
+export type Toc = {
+  depth: number;
+  value: string;
+  children: Toc[];
+};
 
-  const data = processor().processSync(mdText);
-  return (data as any).result as React.ReactElement;
+export const extractToc = (mdText: string): Toc[] => {
+  const processor = unified().use(markdown, { commonmark: true }).use(toc);
+
+  const node = processor().parse(mdText);
+  const data = processor().runSync(node);
+  return (data as any) as Toc[];
 };
 
 export const extractFrontmatter = (
