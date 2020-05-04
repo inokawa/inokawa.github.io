@@ -53,6 +53,13 @@ export const extractToc = (mdText: string): Toc[] => {
   return (data as any) as Toc[];
 };
 
+export const extractIdFromToc = (nodes: Toc[]): string[] =>
+  nodes.reduce<string[]>((acc, node) => {
+    acc.push(node.data.id);
+    acc.push(...extractIdFromToc(node.children));
+    return acc;
+  }, []);
+
 export const extractFrontmatter = (
   mdText: string
 ): GrayMatterFile<string>["data"] => {

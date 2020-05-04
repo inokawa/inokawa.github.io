@@ -1,5 +1,5 @@
 import React from "react";
-import { extractToc, Toc } from "../utils/markdown";
+import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
 import {
   SPACING,
   COLOR_LIGHT_GRAY,
@@ -7,14 +7,17 @@ import {
   COLOR_BLACK,
 } from "../constants/styles";
 import Link from "next/link";
+import { useScrollSpy } from "../hooks/useScrollSpy";
 
-const createNode = (node: Toc): React.ReactNode => (
+const createNode = (node: Toc, section: string): React.ReactNode => (
   <ul key={node.data.id}>
     <li>
       <Link href={`#${node.data.id}`}>
-        <a>{`${node.value}`}</a>
+        <a
+          className={node.data.id === section ? "selected" : undefined}
+        >{`${node.value}`}</a>
       </Link>
-      {node.children.map(createNode)}
+      {node.children.map((n) => createNode(n, section))}
     </li>
     <style jsx>
       {`
@@ -39,6 +42,7 @@ const createNode = (node: Toc): React.ReactNode => (
 
           transition: all 0.1s ease-in-out;
         }
+        a.selected,
         a:hover {
           filter: opacity(50%);
         }
@@ -49,10 +53,11 @@ const createNode = (node: Toc): React.ReactNode => (
 
 const Component: React.FC<{ md: string }> = ({ md }) => {
   const nodes = extractToc(md);
+  const section = useScrollSpy(extractIdFromToc(nodes));
 
   return (
     <nav>
-      {nodes.map(createNode)}
+      {nodes.map((n) => createNode(n, section))}
       <style jsx>
         {`
           nav {
