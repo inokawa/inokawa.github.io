@@ -1,6 +1,7 @@
 import React from "react";
 import { extractToc, Toc } from "../utils/markdown";
 import { SPACING, COLOR_LIGHT_GRAY, BORDER_RADIUS } from "../constants/styles";
+import Link from "next/link";
 
 const tocStyle = {
   position: "sticky",
@@ -12,7 +13,9 @@ const tocStyle = {
 const createNode = (node: Toc): React.ReactNode => (
   <ul>
     <li>
-      <a>{`${node.value}`}</a>
+      <Link href={`#${node.data.id}`}>
+        <a>{`${node.value}`}</a>
+      </Link>
       {node.children.map(createNode)}
     </li>
     <style jsx>

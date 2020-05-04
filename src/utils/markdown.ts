@@ -6,6 +6,7 @@ import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
 // @ts-ignore
 import slug from "remark-slug";
+// @ts-ignore
 import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
 // @ts-ignore
@@ -38,10 +39,14 @@ export type Toc = {
   depth: number;
   value: string;
   children: Toc[];
+  data: { id: string };
 };
 
 export const extractToc = (mdText: string): Toc[] => {
-  const processor = unified().use(markdown, { commonmark: true }).use(toc);
+  const processor = unified()
+    .use(markdown, { commonmark: true })
+    .use(slug)
+    .use(toc, { keys: ["data"] });
 
   const node = processor().parse(mdText);
   const data = processor().runSync(node);
