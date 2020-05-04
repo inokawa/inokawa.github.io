@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 
 const createNode = (node: Toc): React.ReactNode => (
-  <ul>
+  <ul key={node.data.id}>
     <li>
       <Link href={`#${node.data.id}`}>
         <a>{`${node.value}`}</a>
