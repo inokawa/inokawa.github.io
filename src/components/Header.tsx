@@ -44,8 +44,11 @@ const Component: React.FC<{}> = () => {
       <style jsx>
         {`
           .header {
+            position: sticky;
+            top: 0px;
             display: flex;
-            padding: ${SPACING}px;
+            padding-top: ${SPACING}px;
+            padding-bottom: ${SPACING}px;
           }
           .tab-area {
             display: flex;

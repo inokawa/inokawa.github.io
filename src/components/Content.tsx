@@ -1,13 +1,20 @@
 import { SPACING } from "../constants/styles";
 
-const layoutStyle = {
-  flex: 1,
-  padding: SPACING,
-  overflowY: "auto",
-} as const;
-
 const Component: React.FC<{}> = ({ children }) => (
-  <div style={layoutStyle}>{children}</div>
+  <div>
+    {children}
+    <style jsx>
+      {`
+        div {
+          flex: 1;
+          padding-top: 0px;
+          padding-bottom: ${SPACING}px;
+          padding-left: ${SPACING}px;
+          padding-right: ${SPACING}px;
+        }
+      `}
+    </style>
+  </div>
 );
 
 export default Component;
