@@ -8,13 +8,6 @@ import {
 } from "../constants/styles";
 import Link from "next/link";
 
-const tocStyle = {
-  position: "sticky",
-  alignSelf: "start",
-  top: 0,
-  width: 300,
-} as const;
-
 const createNode = (node: Toc): React.ReactNode => (
   <ul>
     <li>
@@ -57,7 +50,21 @@ const createNode = (node: Toc): React.ReactNode => (
 const Component: React.FC<{ md: string }> = ({ md }) => {
   const nodes = extractToc(md);
 
-  return <nav style={tocStyle}>{nodes.map(createNode)}</nav>;
+  return (
+    <nav>
+      {nodes.map(createNode)}
+      <style jsx>
+        {`
+          nav {
+            position: sticky;
+            align-self: start;
+            top: 0px;
+            width: 300px;
+          }
+        `}
+      </style>
+    </nav>
+  );
 };
 
 export default Component;
