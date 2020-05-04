@@ -1,6 +1,11 @@
 import React from "react";
 import { extractToc, Toc } from "../utils/markdown";
-import { SPACING, COLOR_LIGHT_GRAY, BORDER_RADIUS } from "../constants/styles";
+import {
+  SPACING,
+  COLOR_LIGHT_GRAY,
+  BORDER_RADIUS,
+  COLOR_BLACK,
+} from "../constants/styles";
 import Link from "next/link";
 
 const tocStyle = {
@@ -36,6 +41,8 @@ const createNode = (node: Toc): React.ReactNode => (
           padding: ${SPACING / 2}px;
           margin: ${SPACING / 2}px;
           border-radius: ${BORDER_RADIUS}px;
+          text-decoration: none;
+          color: ${COLOR_BLACK};
 
           transition: all 0.1s ease-in-out;
         }
