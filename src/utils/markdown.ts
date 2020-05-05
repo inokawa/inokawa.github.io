@@ -11,7 +11,7 @@ import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
 // @ts-ignore
 import highlight from "rehype-highlight";
-import matter, { GrayMatterFile } from "gray-matter";
+import matter from "gray-matter";
 import React from "react";
 import { remove } from "./unist";
 
@@ -60,8 +60,13 @@ export const extractIdFromToc = (nodes: Toc[]): string[] =>
     return acc;
   }, []);
 
-export type Frontmatter = GrayMatterFile<string>["data"];
+export type Frontmatter = { title: string; date: string; categories: string[] };
 
 export const extractFrontmatter = (mdText: string): Frontmatter => {
-  return matter(mdText).data;
+  const fm = matter(mdText).data;
+  return {
+    title: fm.title || "notitle",
+    date: fm.date || "nodate",
+    categories: fm.categories || [],
+  };
 };
