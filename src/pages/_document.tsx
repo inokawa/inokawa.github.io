@@ -31,6 +31,7 @@ export default class MyDocument extends Document {
               line-height: 1.8;
               color: ${COLOR.BLACK};
               font-family: sans-serif;
+              word-wrap: break-word;
             }
             a {
               color: ${COLOR.PRIMARY};
