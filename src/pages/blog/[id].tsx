@@ -1,5 +1,5 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { extractFrontmatter } from "../../utils/markdown";
+import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
 import { readArticle, readArticles } from "../../utils/article";
 import ArticleHeader from "../../components/ArticleHeader";
 import Article from "../../components/Article";
@@ -9,7 +9,7 @@ import Toc from "../../components/Toc";
 type Param = { id: string };
 type Prop = {
   mdText: string;
-  frontmatter: { [key: string]: any };
+  frontmatter: Frontmatter;
 };
 
 const pageStyle = {

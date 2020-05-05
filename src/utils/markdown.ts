@@ -60,8 +60,8 @@ export const extractIdFromToc = (nodes: Toc[]): string[] =>
     return acc;
   }, []);
 
-export const extractFrontmatter = (
-  mdText: string
-): GrayMatterFile<string>["data"] => {
+export type Frontmatter = GrayMatterFile<string>["data"];
+
+export const extractFrontmatter = (mdText: string): Frontmatter => {
   return matter(mdText).data;
 };

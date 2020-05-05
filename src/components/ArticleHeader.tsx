@@ -1,9 +1,8 @@
 import { SPACING } from "../constants/styles";
 import Tag from "./Tag";
+import { Frontmatter } from "../utils/markdown";
 
-const Component: React.FC<{ frontmatter: { [key: string]: any } }> = ({
-  frontmatter,
-}) => {
+const Component: React.FC<{ frontmatter: Frontmatter }> = ({ frontmatter }) => {
   return (
     <div className="header">
       <h1>{frontmatter.title || "notitle"}</h1>

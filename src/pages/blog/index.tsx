@@ -1,9 +1,9 @@
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import { readArticles } from "../../utils/article";
-import { extractFrontmatter } from "../../utils/markdown";
+import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
 
-type Prop = { articles: { id: string; frontmatter: { [key: string]: any } }[] };
+type Prop = { articles: { id: string; frontmatter: Frontmatter }[] };
 
 const Page: NextPage<Prop> = ({ articles }) => {
   return (
