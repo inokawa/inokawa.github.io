@@ -38,6 +38,7 @@ const Component: React.FC<{}> = () => {
             display: flex;
             padding-top: ${SPACING * 2}px;
             padding-bottom: ${SPACING * 2}px;
+            background: linear-gradient(to top,rgba(255,255,255,0),#fff 50%);
           }
           .tab-area {
             display: flex;
