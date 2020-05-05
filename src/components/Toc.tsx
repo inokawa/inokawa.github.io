@@ -61,6 +61,11 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
             top: 0px;
             width: 300px;
           }
+          @media screen and (max-width: 950px) {
+            nav {
+              display: none;
+            }
+          }
         `}
       </style>
     </nav>
