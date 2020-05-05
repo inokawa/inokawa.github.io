@@ -26,11 +26,23 @@ export default class MyDocument extends Document {
             body {
               margin: 0;
               padding: 0;
-              font-size: 18px;
+              font-size: 16px;
               font-weight: 400;
               line-height: 1.8;
               color: ${COLOR.BLACK};
               font-family: sans-serif;
+              word-wrap: break-word;
+            }
+            a {
+              color: ${COLOR.PRIMARY};
+            }
+            a:visited {
+              color: ${COLOR.PRIMARY_LIGHT};
+            }
+            
+            ::selection {
+              color: white;
+              background: ${COLOR.PRIMARY_LIGHT};
             }
             
             code {

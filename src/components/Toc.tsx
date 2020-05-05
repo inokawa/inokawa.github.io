@@ -1,6 +1,12 @@
 import React from "react";
 import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
-import { SPACING, BORDER_RADIUS, COLOR } from "../constants/styles";
+import {
+  SPACING,
+  BORDER_RADIUS,
+  COLOR,
+  CONTENT_WIDTH,
+  TRANSITION,
+} from "../constants/styles";
 import Link from "next/link";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
@@ -21,7 +27,7 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
           padding-top: 0px;
           padding-bottom: 0px;
           padding-right: 0px;
-          padding-left: ${SPACING}px;
+          padding-left: ${SPACING * 2}px;
         }
         li {
           list-style-type: none;
@@ -30,12 +36,12 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
           display: block;
           background-color: ${COLOR.LIGHT_GRAY};
           padding: ${SPACING / 2}px;
-          margin: ${SPACING / 2}px;
+          margin: ${SPACING}px;
           border-radius: ${BORDER_RADIUS}px;
           text-decoration: none;
           color: ${COLOR.BLACK};
 
-          transition: all 0.1s ease-in-out;
+          transition: ${TRANSITION};
         }
         a.selected,
         a:hover {
@@ -59,7 +65,12 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
             position: sticky;
             align-self: start;
             top: 0px;
-            width: 300px;
+            width: 280px;
+          }
+          @media screen and (max-width: ${CONTENT_WIDTH}px) {
+            nav {
+              display: none;
+            }
           }
         `}
       </style>

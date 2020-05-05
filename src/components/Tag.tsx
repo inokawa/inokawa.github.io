@@ -8,8 +8,8 @@ const Component: React.FC<{}> = ({ children }) => (
         span {
           background-color: ${COLOR.LIGHT_GRAY};
           border-radius: ${BORDER_RADIUS}px;
-          margin: ${SPACING / 2}px;
-          padding: ${SPACING / 2}px;
+          margin: ${SPACING}px;
+          padding: ${SPACING}px;
         }
       `}
     </style>

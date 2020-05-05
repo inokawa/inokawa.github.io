@@ -18,7 +18,6 @@ const Component: React.FC<{}> = ({ children }) => (
           padding-bottom: ${SPACING * 4}px;
           padding-left: ${SPACING * 6}px;
           padding-right: ${SPACING * 6}px;
-          max-width: 800px;
         }
       `}
     </style>

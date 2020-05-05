@@ -12,22 +12,25 @@ type Prop = {
   frontmatter: Frontmatter;
 };
 
-const pageStyle = {
-  display: "flex",
-  flex: 1,
-  flexDirection: "row",
-  alignItems: "flex-start",
-  justifyContent: "space-around",
-} as const;
-
 const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   return (
-    <div style={pageStyle}>
+    <div>
       <ArticleWrapper>
         <ArticleHeader frontmatter={frontmatter} />
         <Article md={mdText} />
       </ArticleWrapper>
-      <Toc md={mdText} />
+      {/* <Toc md={mdText} /> */}
+      <style jsx>
+        {`
+          div {
+            display: flex;
+            flex: 1,
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
+          }
+        `}
+      </style>
     </div>
   );
 };
