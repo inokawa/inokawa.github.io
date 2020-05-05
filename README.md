@@ -6,6 +6,13 @@ GitHub Pages
 
 https://n-inokawa.github.io/
 
+## Start
+
+```
+npm install
+npm run dev
+```
+
 ## Deployment
 
 Merge develop to source
