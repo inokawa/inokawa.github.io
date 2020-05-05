@@ -7,9 +7,9 @@ const Component: React.FC<{}> = ({ children }) => (
       {`
         div {
           flex: 1;
+          align-self: center;
           width: 100%;
           max-width: ${CONTENT_WIDTH}px;
-          margin: auto;
           padding-top: 0px;
           padding-bottom: ${SPACING * 2}px;
           padding-left: ${SPACING * 2}px;
