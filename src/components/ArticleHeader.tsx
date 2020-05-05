@@ -10,7 +10,7 @@ const Component: React.FC<{ frontmatter: { [key: string]: any } }> = ({
       <p className="right">{frontmatter.date || "nodate"}</p>
       <p>
         {(frontmatter.categories || []).map((c: any) => (
-          <Tag>{c}</Tag>
+          <Tag key={c}>{c}</Tag>
         ))}
       </p>
       <style jsx>
