@@ -46,10 +46,9 @@ export default class MyDocument extends Document {
             }
             
             blockquote {
-              display: block;
               border-left: solid 4px ${COLOR.GRAY};
-              padding: ${SPACING}px;
-              margin: 0;
+              padding-left: ${SPACING}px;
+              padding-right: ${SPACING}px;
             }
             code {
               background-color: ${COLOR.LIGHT_GRAY};
