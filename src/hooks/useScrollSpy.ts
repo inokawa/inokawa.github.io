@@ -20,7 +20,7 @@ export const useScrollSpy = (ids: string[]): string => {
           return true;
         }
       });
-    }, 100),
+    }, 50),
     [ids]
   );
 
