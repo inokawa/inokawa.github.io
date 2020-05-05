@@ -1,6 +1,11 @@
 import React from "react";
 import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
-import { SPACING, BORDER_RADIUS, COLOR } from "../constants/styles";
+import {
+  SPACING,
+  BORDER_RADIUS,
+  COLOR,
+  CONTENT_WIDTH,
+} from "../constants/styles";
 import Link from "next/link";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
@@ -61,7 +66,7 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
             top: 0px;
             width: 300px;
           }
-          @media screen and (max-width: 950px) {
+          @media screen and (max-width: ${CONTENT_WIDTH}px) {
             nav {
               display: none;
             }
