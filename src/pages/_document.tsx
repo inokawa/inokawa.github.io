@@ -45,10 +45,23 @@ export default class MyDocument extends Document {
               background: ${COLOR.PRIMARY_LIGHT};
             }
             
+            blockquote {
+              border-left: solid 4px ${COLOR.GRAY};
+              padding-left: ${SPACING}px;
+              padding-right: ${SPACING}px;
+            }
             code {
               background-color: ${COLOR.LIGHT_GRAY};
               border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
               border-radius: ${BORDER_RADIUS}px;
+              padding: ${SPACING / 2}px;
+            }
+            table {
+              border-collapse: collapse;
+              margin: ${SPACING / 2}px;
+            }
+            td,th{
+              border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
               padding: ${SPACING / 2}px;
             }
           `}</style>
