@@ -5,6 +5,7 @@ import {
   BORDER_RADIUS,
   COLOR,
   CONTENT_WIDTH,
+  TRANSITION,
 } from "../constants/styles";
 import Link from "next/link";
 import { useScrollSpy } from "../hooks/useScrollSpy";
@@ -40,7 +41,7 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
           text-decoration: none;
           color: ${COLOR.BLACK};
 
-          transition: all 0.1s ease-in-out;
+          transition: ${TRANSITION};
         }
         a.selected,
         a:hover {

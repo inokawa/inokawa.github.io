@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SPACING, COLOR, BORDER_RADIUS } from "../../constants/styles";
+import { SPACING, COLOR, BORDER_RADIUS, TRANSITION } from "../../constants/styles";
 
 const LinkTab: React.FC<{ href: string; title: string }> = ({
   href,
@@ -31,7 +31,7 @@ const LinkTab: React.FC<{ href: string; title: string }> = ({
             padding: ${SPACING / 2}px;
             border-radius: ${BORDER_RADIUS}px;
 
-            transition: all 0.1s ease-in-out;
+            transition: ${TRANSITION};
           }
           a.selected,
           a:hover {

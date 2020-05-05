@@ -10,3 +10,4 @@ export const COLOR = {
   PRIMARY_LIGHT: "#8ab6cc",
   PRIMARY_DARK: "#2d596d",
 } as const;
+export const TRANSITION = "all 0.1s ease-in-out" as const;
