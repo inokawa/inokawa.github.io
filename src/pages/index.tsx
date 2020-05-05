@@ -1,70 +1,16 @@
 import { NextPage } from "next";
+import Link from "next/link";
 
 const Page: NextPage = () => {
   return (
     <>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
-      <div>WIP</div>
+      <div>
+        source code is available{" "}
+        <Link href={"//github.com/n-inokawa/n-inokawa.github.io"}>
+          <a>here</a>
+        </Link>
+        .
+      </div>
     </>
   );
 };
