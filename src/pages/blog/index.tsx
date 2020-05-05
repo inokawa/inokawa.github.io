@@ -1,9 +1,9 @@
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import { readArticles } from "../../utils/article";
-import { extractFrontmatter } from "../../utils/markdown";
+import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
 
-type Prop = { articles: { id: string; frontmatter: { [key: string]: any } }[] };
+type Prop = { articles: { id: string; frontmatter: Frontmatter }[] };
 
 const Page: NextPage<Prop> = ({ articles }) => {
   return (
@@ -11,9 +11,7 @@ const Page: NextPage<Prop> = ({ articles }) => {
       {articles.map((d) => (
         <div key={d.id}>
           <Link href={`/blog/${d.id}`}>
-            <a>{`${d.frontmatter.date || "nodate"} - ${
-              d.frontmatter.title || "notitle"
-            }`}</a>
+            <a>{`${d.frontmatter.date} - ${d.frontmatter.title}`}</a>
           </Link>
         </div>
       ))}
