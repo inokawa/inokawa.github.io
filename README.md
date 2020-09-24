@@ -1,11 +1,11 @@
-# n-inokawa.github.io
+# inokawa.github.io
 
-![check](https://github.com/n-inokawa/n-inokawa.github.io/workflows/check/badge.svg)
-![deploy](https://github.com/n-inokawa/n-inokawa.github.io/workflows/deploy/badge.svg?branch=source)
+![check](https://github.com/inokawa/inokawa.github.io/workflows/check/badge.svg)
+![deploy](https://github.com/inokawa/inokawa.github.io/workflows/deploy/badge.svg?branch=source)
 
 GitHub Pages
 
-https://n-inokawa.github.io/
+https://inokawa.github.io/
 
 ## Start
 

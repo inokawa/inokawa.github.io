@@ -6,7 +6,7 @@ const Page: NextPage = () => {
     <>
       <div>
         source code is available{" "}
-        <Link href={"//github.com/n-inokawa/n-inokawa.github.io"}>
+        <Link href={"//github.com/inokawa/inokawa.github.io"}>
           <a>here</a>
         </Link>
         .
