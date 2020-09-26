@@ -22,5 +22,5 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm install
-      - run: npm run typecheck
+      - run: npm run tsc
       - run: npm run build

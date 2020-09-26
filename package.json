@@ -8,7 +8,7 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "typecheck": "tsc"
+    "tsc": "tsc --project . --noEmit"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
