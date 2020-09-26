@@ -3,7 +3,7 @@ import { createContentReact } from "../utils/markdown";
 const Component: React.FC<{ md: string }> = ({ md }) => {
   return (
     <div className="article">
-      {createContentReact(md, {})}
+      {createContentReact(md)}
       <style jsx>
         {`
           .article {

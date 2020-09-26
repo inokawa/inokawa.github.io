@@ -15,20 +15,16 @@ import matter from "gray-matter";
 import React from "react";
 import { remove } from "./unist";
 
-export const createContentReact = (
-  mdText: string,
-  components: { [key: string]: React.ReactNode }
-): React.ReactElement => {
+export const createContentReact = (mdText: string): React.ReactElement => {
   const processor = unified()
     .use(markdown, { commonmark: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
-    .use(remove, ["yaml", "toml"])
+    .use(remove as any, ["yaml", "toml"])
     .use(remark2rehype)
     .use(highlight)
     .use(rehype2react, {
       createElement: React.createElement,
-      components,
     });
 
   const data = processor().processSync(mdText);
