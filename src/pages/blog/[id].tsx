@@ -5,19 +5,22 @@ import ArticleHeader from "../../components/ArticleHeader";
 import Article from "../../components/Article";
 import ArticleWrapper from "../../components/ArticleWrapper";
 import Toc from "../../components/Toc";
+import { getCss, getBackgroundColor } from "../../utils/monaco";
+import { createContentHtml } from "../../utils/markdown";
 
 type Param = { id: string };
 type Prop = {
-  mdText: string;
+  html: string;
   frontmatter: Frontmatter;
+  codeCss: string;
 };
 
-const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
+const Page: NextPage<Prop> = ({ html, frontmatter, codeCss }) => {
   return (
     <div>
       <ArticleWrapper>
         <ArticleHeader frontmatter={frontmatter} />
-        <Article md={mdText} />
+        <Article html={html} />
       </ArticleWrapper>
       {/* <Toc md={mdText} /> */}
       <style jsx>
@@ -31,6 +34,7 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
           }
         `}
       </style>
+      <style>{codeCss}</style>
     </div>
   );
 };
@@ -39,10 +43,13 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   params,
 }) => {
   const article = readArticle(params?.id || "");
+  const codeCss = `pre { background-color: ${getBackgroundColor()}; } ${getCss()}`;
+  const html = await createContentHtml(article.content);
   return {
     props: {
-      mdText: article.content,
+      html: html,
       frontmatter: extractFrontmatter(article.content),
+      codeCss,
     },
   };
 };

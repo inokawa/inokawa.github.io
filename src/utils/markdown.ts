@@ -3,32 +3,28 @@ import markdown from "remark-parse";
 // @ts-ignore
 import remark2rehype from "remark-rehype";
 // @ts-ignore
-import rehype2react from "rehype-react";
+import html from "rehype-stringify";
 // @ts-ignore
 import slug from "remark-slug";
 // @ts-ignore
 import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
-// @ts-ignore
-import highlight from "rehype-highlight";
 import matter from "gray-matter";
-import React from "react";
-import { remove } from "./unist";
+import { remove } from "./unified/unist";
+import { colorize } from "./unified/hast";
 
-export const createContentReact = (mdText: string): React.ReactElement => {
+export const createContentHtml = async (mdText: string) => {
   const processor = unified()
     .use(markdown, { commonmark: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
     .use(remove as any, ["yaml", "toml"])
     .use(remark2rehype)
-    .use(highlight)
-    .use(rehype2react, {
-      createElement: React.createElement,
-    });
+    .use(colorize)
+    .use(html, { allowDangerousHtml: true });
 
-  const data = processor().processSync(mdText);
-  return (data as any).result as React.ReactElement;
+  const data = await processor().process(mdText);
+  return (data as any).contents as string;
 };
 
 export type Toc = {

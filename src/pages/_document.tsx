@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
               padding-left: ${SPACING}px;
               padding-right: ${SPACING}px;
             }
-            code {
+            code:not([class]) {
               background-color: ${COLOR.LIGHT_GRAY};
               border: solid ${BORDER_WIDTH}px ${COLOR.GRAY};
               border-radius: ${BORDER_RADIUS}px;

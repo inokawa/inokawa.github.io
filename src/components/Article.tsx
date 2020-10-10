@@ -1,9 +1,12 @@
-import { createContentReact } from "../utils/markdown";
-
-const Component: React.FC<{ md: string }> = ({ md }) => {
+const Component: React.FC<{ html: string }> = ({ html }) => {
   return (
-    <div className="article">
-      {createContentReact(md)}
+    <>
+      <div
+        className="article"
+        dangerouslySetInnerHTML={{
+          __html: html,
+        }}
+      />
       <style jsx>
         {`
           .article {
@@ -11,7 +14,7 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
           }
         `}
       </style>
-    </div>
+    </>
   );
 };
 
