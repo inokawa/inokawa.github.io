@@ -7,17 +7,15 @@ import {
   CONTENT_WIDTH,
   TRANSITION,
 } from "../constants/styles";
-import Link from "next/link";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
 const createNode = (node: Toc, section: string): React.ReactNode => (
   <ul key={node.data.id}>
     <li>
-      <Link href={`#${node.data.id}`}>
-        <a
-          className={node.data.id === section ? "selected" : undefined}
-        >{`${node.value}`}</a>
-      </Link>
+      <a
+        className={node.data.id === section ? "selected" : undefined}
+        href={`#${node.data.id}`}
+      >{`${node.value}`}</a>
       {node.children.map((n) => createNode(n, section))}
     </li>
     <style jsx>

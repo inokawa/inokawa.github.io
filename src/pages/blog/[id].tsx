@@ -19,7 +19,7 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
         <ArticleHeader frontmatter={frontmatter} />
         <Article md={mdText} />
       </ArticleWrapper>
-      {/* <Toc md={mdText} /> */}
+      <Toc md={mdText} />
       <style jsx>
         {`
           div {
