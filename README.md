@@ -16,4 +16,4 @@ npm run dev
 
 ## Deployment
 
-Merge develop to source
+Merge develop to master
