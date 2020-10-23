@@ -3,9 +3,9 @@ import Link from "next/link";
 import { readPosts } from "../../utils/article";
 import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
 
-type Prop = { articles: { id: string; frontmatter: Frontmatter }[] };
+type Props = { articles: { id: string; frontmatter: Frontmatter }[] };
 
-const Page: NextPage<Prop> = ({ articles }) => {
+const Page: NextPage<Props> = ({ articles }) => {
   return (
     <div>
       {articles.map((d) => (
@@ -19,7 +19,7 @@ const Page: NextPage<Prop> = ({ articles }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Prop> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const articles = readPosts();
 
   return {

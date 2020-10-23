@@ -7,12 +7,12 @@ import ArticleWrapper from "../../components/ArticleWrapper";
 import Toc from "../../components/Toc";
 
 type Param = { id: string };
-type Prop = {
+type Props = {
   mdText: string;
   frontmatter: Frontmatter;
 };
 
-const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
+const Page: NextPage<Props> = ({ mdText, frontmatter }) => {
   return (
     <div>
       <ArticleWrapper>
@@ -35,7 +35,7 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Prop, Param> = async ({
+export const getStaticProps: GetStaticProps<Props, Param> = async ({
   params,
 }) => {
   const article = readArticle(`posts/${params?.id}` || "");
