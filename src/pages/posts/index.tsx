@@ -10,7 +10,7 @@ const Page: NextPage<Prop> = ({ articles }) => {
     <div>
       {articles.map((d) => (
         <div key={d.id}>
-          <Link href={`/blog/${d.id}`}>
+          <Link href={`/posts/${d.id}`}>
             <a>{`${d.frontmatter.date} - ${d.frontmatter.title}`}</a>
           </Link>
         </div>

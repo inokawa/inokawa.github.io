@@ -49,7 +49,7 @@ const Component: React.FC<{}> = () => {
       <div className="tab-area">
         <LinkTab href="/" title="Home" />
         <LinkTab href="/about" title="About" />
-        <LinkTab href="/blog" title="Blog" />
+        <LinkTab href="/posts" title="Posts" />
       </div>
       <style jsx>
         {`
