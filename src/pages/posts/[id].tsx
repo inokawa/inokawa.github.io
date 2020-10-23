@@ -1,6 +1,6 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
-import { readArticle, readArticles } from "../../utils/article";
+import { readArticle, readPosts } from "../../utils/article";
 import ArticleHeader from "../../components/ArticleHeader";
 import Article from "../../components/Article";
 import ArticleWrapper from "../../components/ArticleWrapper";
@@ -38,7 +38,7 @@ const Page: NextPage<Prop> = ({ mdText, frontmatter }) => {
 export const getStaticProps: GetStaticProps<Prop, Param> = async ({
   params,
 }) => {
-  const article = readArticle(params?.id || "");
+  const article = readArticle(`posts/${params?.id}` || "");
   return {
     props: {
       mdText: article.content,
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps<Prop, Param> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<Param> = async () => {
-  const articles = readArticles();
+  const articles = readPosts();
   return {
     paths: articles.map((d) => ({ params: { id: d.id } })),
     fallback: false,
