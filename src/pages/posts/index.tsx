@@ -1,16 +1,16 @@
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
-import { readArticles } from "../../utils/article";
+import { readPosts } from "../../utils/article";
 import { extractFrontmatter, Frontmatter } from "../../utils/markdown";
 
-type Prop = { articles: { id: string; frontmatter: Frontmatter }[] };
+type Props = { articles: { id: string; frontmatter: Frontmatter }[] };
 
-const Page: NextPage<Prop> = ({ articles }) => {
+const Page: NextPage<Props> = ({ articles }) => {
   return (
     <div>
       {articles.map((d) => (
         <div key={d.id}>
-          <Link href={`/blog/${d.id}`}>
+          <Link href={`/posts/${d.id}`}>
             <a>{`${d.frontmatter.date} - ${d.frontmatter.title}`}</a>
           </Link>
         </div>
@@ -19,8 +19,8 @@ const Page: NextPage<Prop> = ({ articles }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Prop> = async () => {
-  const articles = readArticles();
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const articles = readPosts();
 
   return {
     props: {

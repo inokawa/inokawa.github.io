@@ -11,8 +11,8 @@ export const readArticle = (id: string): Article => {
   };
 };
 
-export const readArticles = (): Article[] => {
-  const dirPath = path.join(process.cwd(), "./src/articles");
+export const readPosts = (): Article[] => {
+  const dirPath = path.join(process.cwd(), "./src/articles/posts");
   const filenames = fs.readdirSync(dirPath);
 
   return filenames.map((filename) => {
