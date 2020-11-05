@@ -17,7 +17,7 @@ import { remove } from "./unist";
 
 export const createContentReact = (mdText: string): React.ReactElement => {
   const processor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
     .use(remove as any, ["yaml", "toml"])
@@ -28,7 +28,7 @@ export const createContentReact = (mdText: string): React.ReactElement => {
     });
 
   const data = processor().processSync(mdText);
-  return (data as any).result as React.ReactElement;
+  return data.result as React.ReactElement;
 };
 
 export type Toc = {
@@ -40,7 +40,7 @@ export type Toc = {
 
 export const extractToc = (mdText: string): Toc[] => {
   const processor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(slug)
     .use(toc, { keys: ["data"] });
 
