@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "highlight.js": "^10.0.1",
+    "highlight.js": "^10.1.2",
     "next": "^9.5.4",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
