@@ -1,15 +1,11 @@
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
-// @ts-ignore
 import remark2rehype from "remark-rehype";
-// @ts-ignore
 import rehype2react from "rehype-react";
-// @ts-ignore
 import slug from "remark-slug";
 // @ts-ignore
 import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
-// @ts-ignore
 import highlight from "rehype-highlight";
 import matter from "gray-matter";
 import React from "react";
@@ -46,7 +42,7 @@ export const extractToc = (mdText: string): Toc[] => {
 
   const node = processor().parse(mdText);
   const data = processor().runSync(node);
-  return (data as any) as Toc[];
+  return data as any as Toc[];
 };
 
 export const extractIdFromToc = (nodes: Toc[]): string[] =>
