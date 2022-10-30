@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 const layoutStyle = {
   display: "flex",
   flexDirection: "column",
@@ -5,8 +7,6 @@ const layoutStyle = {
   height: "100vh",
 } as const;
 
-const Component: React.FC<{}> = ({ children }) => (
+export default ({ children }: { children: ReactNode }) => (
   <div style={layoutStyle}>{children}</div>
 );
-
-export default Component;

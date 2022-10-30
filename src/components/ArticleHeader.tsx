@@ -2,7 +2,7 @@ import { SPACING } from "../constants/styles";
 import Tag from "./Tag";
 import { Frontmatter } from "../utils/markdown";
 
-const Component: React.FC<{ frontmatter: Frontmatter }> = ({ frontmatter }) => {
+export default ({ frontmatter }: { frontmatter: Frontmatter }) => {
   return (
     <div className="header">
       <h1>{frontmatter.title}</h1>
@@ -25,5 +25,3 @@ const Component: React.FC<{ frontmatter: Frontmatter }> = ({ frontmatter }) => {
     </div>
   );
 };
-
-export default Component;

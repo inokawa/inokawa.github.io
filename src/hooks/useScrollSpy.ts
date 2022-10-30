@@ -1,10 +1,10 @@
-import React from "react";
+import { useCallback, useEffect, useState } from "react";
 import { throttle } from "../utils/timer";
 
 export const useScrollSpy = (ids: string[]): string => {
-  const [section, setSection] = React.useState<string>("");
+  const [section, setSection] = useState<string>("");
 
-  const spyScroll = React.useCallback(
+  const spyScroll = useCallback(
     throttle(() => {
       ids.some((id, i) => {
         const elem = document.getElementById(id);
@@ -24,7 +24,7 @@ export const useScrollSpy = (ids: string[]): string => {
     [ids]
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", spyScroll);
     return () => {
       window.removeEventListener("scroll", spyScroll);

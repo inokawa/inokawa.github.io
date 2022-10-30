@@ -1,34 +1,31 @@
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
-// @ts-ignore
 import remark2rehype from "remark-rehype";
-// @ts-ignore
 import rehype2react from "rehype-react";
-// @ts-ignore
 import slug from "remark-slug";
 // @ts-ignore
 import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
-// @ts-ignore
 import highlight from "rehype-highlight";
 import matter from "gray-matter";
-import React from "react";
 import { remove } from "./unist";
+import { ReactElement } from "rehype-react/lib";
+import { createElement } from "react";
 
-export const createContentReact = (mdText: string): React.ReactElement => {
+export const createContentReact = (mdText: string): ReactElement => {
   const processor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
     .use(remove as any, ["yaml", "toml"])
     .use(remark2rehype)
     .use(highlight)
     .use(rehype2react, {
-      createElement: React.createElement,
+      createElement,
     });
 
   const data = processor().processSync(mdText);
-  return (data as any).result as React.ReactElement;
+  return data.result as React.ReactElement;
 };
 
 export type Toc = {
@@ -40,13 +37,13 @@ export type Toc = {
 
 export const extractToc = (mdText: string): Toc[] => {
   const processor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(slug)
     .use(toc, { keys: ["data"] });
 
   const node = processor().parse(mdText);
   const data = processor().runSync(node);
-  return (data as any) as Toc[];
+  return data as any as Toc[];
 };
 
 export const extractIdFromToc = (nodes: Toc[]): string[] =>

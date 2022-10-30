@@ -1,7 +1,7 @@
-export const CONTENT_WIDTH = 1024 as const;
-export const SPACING = 10 as const;
-export const BORDER_RADIUS = 4 as const;
-export const BORDER_WIDTH = 1 as const;
+export const CONTENT_WIDTH = 1024;
+export const SPACING = 10;
+export const BORDER_RADIUS = 4;
+export const BORDER_WIDTH = 1;
 export const COLOR = {
   BLACK: "#444444",
   GRAY: "#AAAAAA",
@@ -9,5 +9,5 @@ export const COLOR = {
   PRIMARY: "#5b869b",
   PRIMARY_LIGHT: "#8ab6cc",
   PRIMARY_DARK: "#2d596d",
-} as const;
-export const TRANSITION = "all 0.1s ease-in-out" as const;
+};
+export const TRANSITION = "all 0.1s ease-in-out";

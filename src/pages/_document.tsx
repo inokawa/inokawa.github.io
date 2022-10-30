@@ -10,6 +10,7 @@ import {
   BORDER_WIDTH,
   SPACING,
   COLOR,
+  TRANSITION,
 } from "../constants/styles";
 
 export default class MyDocument extends Document {
@@ -37,9 +38,13 @@ export default class MyDocument extends Document {
             }
             a {
               color: ${COLOR.PRIMARY};
+              transition: ${TRANSITION};
             }
             a:visited {
               color: ${COLOR.PRIMARY_LIGHT};
+            }
+            a:hover {
+              color: ${COLOR.PRIMARY_DARK};
             }
             
             ::selection {

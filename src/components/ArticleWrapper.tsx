@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import {
   BORDER_RADIUS,
   BORDER_WIDTH,
@@ -5,7 +6,7 @@ import {
   SPACING,
 } from "../constants/styles";
 
-const Component: React.FC<{}> = ({ children }) => (
+export default ({ children }: { children: ReactNode }) => (
   <div>
     {children}
     <style jsx>
@@ -23,5 +24,3 @@ const Component: React.FC<{}> = ({ children }) => (
     </style>
   </div>
 );
-
-export default Component;
