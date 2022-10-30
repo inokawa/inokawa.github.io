@@ -1,14 +1,11 @@
-import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SPACING, COLOR, BORDER_RADIUS, TRANSITION } from "../../constants/styles";
+import { useMemo } from "react";
+import { SPACING, BORDER_RADIUS } from "../../constants/styles";
 
-const LinkTab: React.FC<{ href: string; title: string }> = ({
-  href,
-  title,
-}) => {
+const LinkTab = ({ href, title }: { href: string; title: string }) => {
   const router = useRouter();
-  const className = React.useMemo(
+  const className = useMemo(
     () =>
       (
         href === "/"
@@ -21,29 +18,23 @@ const LinkTab: React.FC<{ href: string; title: string }> = ({
   );
 
   return (
-    <Link href={href}>
-      <a className={className}>
+    <>
+      <Link
+        href={href}
+        className={className}
+        style={{
+          marginRight: "15px",
+          padding: `${SPACING / 2}px`,
+          borderRadius: `${BORDER_RADIUS}px`,
+        }}
+      >
         {title}
-        <style jsx>{`
-          a {
-            color: ${COLOR.GRAY};
-            margin-right: 15px;
-            padding: ${SPACING / 2}px;
-            border-radius: ${BORDER_RADIUS}px;
-
-            transition: ${TRANSITION};
-          }
-          a.selected,
-          a:hover {
-            color: ${COLOR.PRIMARY};
-          }
-        `}</style>
-      </a>
-    </Link>
+      </Link>
+    </>
   );
 };
 
-const Component: React.FC<{}> = () => {
+export default () => {
   return (
     <div className="header">
       <div className="tab-area">
@@ -75,5 +66,3 @@ const Component: React.FC<{}> = () => {
     </div>
   );
 };
-
-export default Component;

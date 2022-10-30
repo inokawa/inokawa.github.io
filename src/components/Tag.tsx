@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 import { SPACING, BORDER_RADIUS, COLOR } from "../constants/styles";
 
-const Component: React.FC<{}> = ({ children }) => (
+export default ({ children }: { children: ReactNode }) => (
   <span>
     {children}
     <style jsx>
@@ -15,5 +16,3 @@ const Component: React.FC<{}> = ({ children }) => (
     </style>
   </span>
 );
-
-export default Component;

@@ -1,4 +1,3 @@
-import React from "react";
 import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
 import {
   SPACING,
@@ -50,7 +49,7 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
   </ul>
 );
 
-const Component: React.FC<{ md: string }> = ({ md }) => {
+export default ({ md }: { md: string }) => {
   const nodes = extractToc(md);
   const section = useScrollSpy(extractIdFromToc(nodes));
 
@@ -75,5 +74,3 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
     </nav>
   );
 };
-
-export default Component;

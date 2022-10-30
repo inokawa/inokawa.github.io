@@ -8,10 +8,11 @@ import toc from "remark-extract-toc";
 import frontmatter from "remark-frontmatter";
 import highlight from "rehype-highlight";
 import matter from "gray-matter";
-import React from "react";
 import { remove } from "./unist";
+import { ReactElement } from "rehype-react/lib";
+import { createElement } from "react";
 
-export const createContentReact = (mdText: string): React.ReactElement => {
+export const createContentReact = (mdText: string): ReactElement => {
   const processor = unified()
     .use(markdown)
     .use(frontmatter, ["yaml", "toml"])
@@ -20,7 +21,7 @@ export const createContentReact = (mdText: string): React.ReactElement => {
     .use(remark2rehype)
     .use(highlight)
     .use(rehype2react, {
-      createElement: React.createElement,
+      createElement,
     });
 
   const data = processor().processSync(mdText);

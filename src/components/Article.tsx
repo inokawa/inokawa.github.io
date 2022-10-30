@@ -1,6 +1,6 @@
 import { createContentReact } from "../utils/markdown";
 
-const Component: React.FC<{ md: string }> = ({ md }) => {
+export default ({ md }: { md: string }) => {
   return (
     <div className="article">
       {createContentReact(md)}
@@ -14,5 +14,3 @@ const Component: React.FC<{ md: string }> = ({ md }) => {
     </div>
   );
 };
-
-export default Component;

@@ -11,7 +11,7 @@ const Page: NextPage<Props> = ({ articles }) => {
       {articles.map((d) => (
         <div key={d.id}>
           <Link href={`/posts/${d.id}`}>
-            <a>{`${d.frontmatter.date} - ${d.frontmatter.title}`}</a>
+            {`${d.frontmatter.date} - ${d.frontmatter.title}`}
           </Link>
         </div>
       ))}
