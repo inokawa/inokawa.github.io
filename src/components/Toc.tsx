@@ -1,6 +1,7 @@
+"use client";
+
 import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
 import {
-  SPACING,
   BORDER_RADIUS,
   COLOR,
   CONTENT_WIDTH,
@@ -24,7 +25,7 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
           padding-top: 0px;
           padding-bottom: 0px;
           padding-right: 0px;
-          padding-left: ${SPACING * 2}px;
+          padding-left: 2rem;
         }
         li {
           list-style-type: none;
@@ -32,8 +33,8 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
         a {
           display: block;
           background-color: ${COLOR.LIGHT_GRAY};
-          padding: ${SPACING / 2}px;
-          margin: ${SPACING}px;
+          padding: 0.5rem;
+          margin: 1px;
           border-radius: ${BORDER_RADIUS}px;
           text-decoration: none;
           color: ${COLOR.BLACK};

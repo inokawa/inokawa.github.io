@@ -1,5 +1,4 @@
 export const CONTENT_WIDTH = 1024;
-export const SPACING = 10;
 export const BORDER_RADIUS = 4;
 export const BORDER_WIDTH = 1;
 export const COLOR = {
