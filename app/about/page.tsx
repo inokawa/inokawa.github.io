@@ -1,7 +1,7 @@
 import { readArticle } from "../../src/utils/article";
 import Article from "../../src/components/Article";
 
-const Page = async () => {
+export default async () => {
   const article = await readArticle("about");
   return (
     <div>
@@ -9,5 +9,3 @@ const Page = async () => {
     </div>
   );
 };
-
-export default Page;

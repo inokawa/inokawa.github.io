@@ -7,7 +7,7 @@ import Toc from "../../../src/components/Toc";
 
 type Param = { id: string };
 
-const Page = async ({ params }: { params: Param }) => {
+export default async ({ params }: { params: Param }) => {
   const article = await readArticle(`posts/${params.id}`);
   const frontmatter = extractFrontmatter(article.content);
   const mdText = article.content;
@@ -35,5 +35,3 @@ export const generateStaticParams = async () => {
   const articles = await readPosts();
   return articles.map((d) => ({ id: d.id }));
 };
-
-export default Page;

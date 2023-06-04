@@ -2,7 +2,7 @@ import Link from "next/link";
 import { readPosts } from "../../src/utils/article";
 import { extractFrontmatter } from "../../src/utils/markdown";
 
-const Page = async () => {
+export default async () => {
   const articles = await readPosts();
 
   return (
@@ -20,5 +20,3 @@ const Page = async () => {
     </div>
   );
 };
-
-export default Page;
