@@ -1,8 +1,8 @@
 import { readArticle } from "../../src/utils/article";
 import Article from "../../src/components/Article";
 
-const Page = () => {
-  const article = readArticle("about");
+const Page = async () => {
+  const article = await readArticle("about");
   return (
     <div>
       <Article md={article.content} />

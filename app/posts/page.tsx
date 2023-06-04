@@ -2,8 +2,8 @@ import Link from "next/link";
 import { readPosts } from "../../src/utils/article";
 import { extractFrontmatter } from "../../src/utils/markdown";
 
-const Page = () => {
-  const articles = readPosts();
+const Page = async () => {
+  const articles = await readPosts();
 
   return (
     <div>
