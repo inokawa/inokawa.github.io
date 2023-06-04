@@ -1,18 +1,15 @@
 import { ReactNode } from "react";
-import { SPACING, BORDER_RADIUS, COLOR } from "../constants/styles";
+import { BORDER_RADIUS, COLOR } from "../constants/styles";
 
 export default ({ children }: { children: ReactNode }) => (
-  <span>
+  <span
+    style={{
+      backgroundColor: COLOR.LIGHT_GRAY,
+      borderRadius: `${BORDER_RADIUS}px`,
+      margin: "1rem",
+      padding: "1rem",
+    }}
+  >
     {children}
-    <style jsx>
-      {`
-        span {
-          background-color: ${COLOR.LIGHT_GRAY};
-          border-radius: ${BORDER_RADIUS}px;
-          margin: ${SPACING}px;
-          padding: ${SPACING}px;
-        }
-      `}
-    </style>
   </span>
 );

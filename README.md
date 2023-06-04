@@ -1,7 +1,7 @@
 # inokawa.github.io
 
 ![check](https://github.com/inokawa/inokawa.github.io/workflows/check/badge.svg)
-![deploy](https://github.com/inokawa/inokawa.github.io/workflows/deploy/badge.svg?branch=source)
+![deploy](https://github.com/inokawa/inokawa.github.io/workflows/deploy/badge.svg?branch=master)
 
 GitHub Pages
 
