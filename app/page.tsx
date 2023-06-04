@@ -1,9 +1,7 @@
-const Page = () => {
+export default () => {
   return (
     <>
       <div></div>
     </>
   );
 };
-
-export default Page;
