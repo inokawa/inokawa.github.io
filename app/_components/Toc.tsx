@@ -1,13 +1,13 @@
 "use client";
 
-import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
+import { extractToc, Toc, extractIdFromToc } from "../_utils/markdown";
 import {
   BORDER_RADIUS,
   COLOR,
   CONTENT_WIDTH,
   TRANSITION,
-} from "../constants/styles";
-import { useScrollSpy } from "../hooks/useScrollSpy";
+} from "../_constants/styles";
+import { useScrollSpy } from "../_hooks/useScrollSpy";
 
 const createNode = (node: Toc, section: string): React.ReactNode => (
   <ul key={node.data.id}>

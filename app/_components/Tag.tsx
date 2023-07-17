@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { BORDER_RADIUS, COLOR } from "../constants/styles";
+import { BORDER_RADIUS, COLOR } from "../_constants/styles";
 
 export default ({ children }: { children: ReactNode }) => (
   <span

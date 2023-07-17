@@ -1,5 +1,5 @@
-import { readArticle } from "../../src/utils/article";
-import Article from "../../src/components/Article";
+import { readArticle } from "../_utils/article";
+import Article from "../_components/Article";
 
 export default async () => {
   const article = await readArticle("about");

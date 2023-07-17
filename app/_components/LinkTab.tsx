@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BORDER_RADIUS } from "../constants/styles";
+import { BORDER_RADIUS } from "../_constants/styles";
 
 export const LinkTab = ({ href, title }: { href: string; title: string }) => {
   const pathname = usePathname() || "";

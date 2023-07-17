@@ -1,7 +1,7 @@
 import "normalize.css";
 import "highlight.js/styles/vs2015.css";
-import Wrapper from "../src/components/Wrapper";
-import { LinkTab } from "../src/components/LinkTab";
+import Wrapper from "./_components/Wrapper";
+import { LinkTab } from "./_components/LinkTab";
 import { ReactNode } from "react";
 import {
   BORDER_RADIUS,
@@ -9,7 +9,7 @@ import {
   COLOR,
   CONTENT_WIDTH,
   TRANSITION,
-} from "../src/constants/styles";
+} from "./_constants/styles";
 
 const MyApp = ({ children }: { children: ReactNode }) => {
   return (

@@ -1,5 +1,5 @@
 import Tag from "./Tag";
-import { Frontmatter } from "../utils/markdown";
+import { Frontmatter } from "../_utils/markdown";
 
 export default ({ frontmatter }: { frontmatter: Frontmatter }) => {
   return (

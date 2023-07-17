@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { BORDER_RADIUS, BORDER_WIDTH, COLOR } from "../constants/styles";
+import { BORDER_RADIUS, BORDER_WIDTH, COLOR } from "../_constants/styles";
 
 export default ({ children }: { children: ReactNode }) => (
   <div

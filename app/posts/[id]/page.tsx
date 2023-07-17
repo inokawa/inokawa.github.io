@@ -1,9 +1,9 @@
-import { extractFrontmatter } from "../../../src/utils/markdown";
-import { readArticle, readPosts } from "../../../src/utils/article";
-import ArticleHeader from "../../../src/components/ArticleHeader";
-import Article from "../../../src/components/Article";
-import ArticleWrapper from "../../../src/components/ArticleWrapper";
-import Toc from "../../../src/components/Toc";
+import { extractFrontmatter } from "../../_utils/markdown";
+import { readArticle, readPosts } from "../../_utils/article";
+import ArticleHeader from "../../_components/ArticleHeader";
+import Article from "../../_components/Article";
+import ArticleWrapper from "../../_components/ArticleWrapper";
+import Toc from "../../_components/Toc";
 
 type Param = { id: string };
 

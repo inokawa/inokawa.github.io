@@ -4,7 +4,7 @@ import path from "path";
 export type Article = { id: string; content: string };
 
 export const readArticle = async (id: string): Promise<Article> => {
-  const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
+  const filePath = path.join(process.cwd(), `./articles/${id}.md`);
   return {
     id,
     content: await fs.readFile(filePath, "utf8"),
@@ -12,7 +12,7 @@ export const readArticle = async (id: string): Promise<Article> => {
 };
 
 export const readPosts = async (): Promise<Article[]> => {
-  const dirPath = path.join(process.cwd(), "./src/articles/posts");
+  const dirPath = path.join(process.cwd(), "./articles/posts");
   const filenames = await fs.readdir(dirPath);
 
   return Promise.all(
