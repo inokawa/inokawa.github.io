@@ -12,7 +12,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "highlight.js": "11.8.0",
-    "next": "13.4.6",
+    "next": "13.4.10",
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
