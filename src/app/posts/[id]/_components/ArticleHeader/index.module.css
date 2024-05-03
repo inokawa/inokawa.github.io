@@ -1,0 +1,12 @@
+.wrapper {
+  margin-bottom: 6rem;
+}
+.date {
+  text-align: right;
+}
+.tag {
+  background-color: var(--color-gray-light);
+  border-radius: var(--border-radius);
+  margin: 1rem;
+  padding: 1rem;
+}

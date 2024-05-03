@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.content {
+  flex: 1;
+  align-self: center;
+  width: 100%;
+  max-width: var(--content-width);
+  padding-top: 0px;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.header {
+  position: sticky;
+  top: 0px;
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), #fff 50%);
+}
+.tab-area {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}

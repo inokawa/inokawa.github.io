@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { readPosts } from "../_utils/article";
-import { extractFrontmatter } from "../_utils/markdown";
+import { readPosts } from "../../utils/article";
+import { extractFrontmatter } from "../../utils/markdown";
 
 export default async () => {
   const articles = await readPosts();

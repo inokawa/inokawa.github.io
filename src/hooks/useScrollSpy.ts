@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { throttle } from "../_utils/timer";
+import { throttle } from "../utils/timer";
 
 export const useScrollSpy = (ids: string[]): string => {
-  const [section, setSection] = useState<string>("");
+  const [sectionId, setSectionId] = useState<string>("");
 
   const spyScroll = useCallback(
     throttle(() => {
@@ -16,7 +16,7 @@ export const useScrollSpy = (ids: string[]): string => {
           window.scrollY > elem.offsetTop &&
           (!nextElem || window.scrollY < nextElem.offsetTop)
         ) {
-          setSection(id);
+          setSectionId(id);
           return true;
         }
       });
@@ -31,5 +31,5 @@ export const useScrollSpy = (ids: string[]): string => {
     };
   }, []);
 
-  return section;
+  return sectionId;
 };
