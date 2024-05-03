@@ -2,6 +2,7 @@ import { unified } from "unified";
 import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
+import gfm from "remark-gfm";
 import slug from "remark-slug";
 // @ts-ignore
 import toc from "remark-extract-toc";
@@ -9,12 +10,12 @@ import frontmatter from "remark-frontmatter";
 import highlight from "rehype-highlight";
 import matter from "gray-matter";
 import { remove } from "./unist";
-import { ReactElement } from "rehype-react/lib";
-import { createElement } from "react";
+import { ReactElement, createElement } from "react";
 
-export const createContentReact = (mdText: string): ReactElement => {
+export const md2React = (mdText: string): ReactElement => {
   const processor = unified()
     .use(markdown)
+    .use(gfm)
     .use(frontmatter, ["yaml", "toml"])
     .use(slug)
     .use(remove as any, ["yaml", "toml"])

@@ -1,3 +1,5 @@
+import "client-only";
+
 export const debounce = (fn: () => void, interval: number) => {
   let timer: NodeJS.Timeout;
   return () => {

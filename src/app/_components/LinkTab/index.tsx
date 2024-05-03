@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BORDER_RADIUS } from "../constants/styles";
+import styles from "./index.module.css";
 
 export const LinkTab = ({ href, title }: { href: string; title: string }) => {
   const pathname = usePathname() || "";
@@ -12,18 +12,8 @@ export const LinkTab = ({ href, title }: { href: string; title: string }) => {
     ? "selected"
     : undefined;
   return (
-    <>
-      <Link
-        href={href}
-        className={className}
-        style={{
-          marginRight: "15px",
-          padding: `0.5rem`,
-          borderRadius: `${BORDER_RADIUS}px`,
-        }}
-      >
-        {title}
-      </Link>
-    </>
+    <Link href={href} className={`${styles.wrapper} ${className}`}>
+      {title}
+    </Link>
   );
 };

@@ -1,13 +1,7 @@
 "use client";
 
-import { extractToc, Toc, extractIdFromToc } from "../utils/markdown";
-import {
-  BORDER_RADIUS,
-  COLOR,
-  CONTENT_WIDTH,
-  TRANSITION,
-} from "../constants/styles";
-import { useScrollSpy } from "../hooks/useScrollSpy";
+import { Toc, extractIdFromToc } from "../../../../../utils/markdown";
+import { useScrollSpy } from "../../../../../hooks/useScrollSpy";
 
 const createNode = (node: Toc, section: string): React.ReactNode => (
   <ul key={node.data.id}>
@@ -32,14 +26,14 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
         }
         a {
           display: block;
-          background-color: ${COLOR.LIGHT_GRAY};
+          background-color: var(--color-gray-light);
           padding: 0.5rem;
           margin: 1px;
-          border-radius: ${BORDER_RADIUS}px;
+          border-radius: var(--border-radius);
           text-decoration: none;
-          color: ${COLOR.BLACK};
+          color: var(--color-black);
 
-          transition: ${TRANSITION};
+          transition: var(--transition);
         }
         a.selected,
         a:hover {
@@ -50,13 +44,12 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
   </ul>
 );
 
-export default ({ md }: { md: string }) => {
-  const nodes = extractToc(md);
-  const section = useScrollSpy(extractIdFromToc(nodes));
+export default ({ tocs }: { tocs: Toc[] }) => {
+  const selectedSectionId = useScrollSpy(extractIdFromToc(tocs));
 
   return (
     <nav>
-      {nodes.map((n) => createNode(n, section))}
+      {tocs.map((n) => createNode(n, selectedSectionId))}
       <style jsx>
         {`
           nav {
@@ -65,7 +58,7 @@ export default ({ md }: { md: string }) => {
             top: 0px;
             width: 280px;
           }
-          @media screen and (max-width: ${CONTENT_WIDTH}px) {
+          @media screen and (max-width: var(--content-width)) {
             nav {
               display: none;
             }
