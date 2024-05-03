@@ -1,29 +1,28 @@
 "use client";
 
-import { Toc, extractIdFromToc } from "../../../../../utils/markdown";
-import { useScrollSpy } from "../../../../../hooks/useScrollSpy";
+import { Toc } from "../../../../../server/markdown";
+import { useScrollSpy } from "./useScrollSpy";
+import styles from "./index.module.css";
 
-const createNode = (node: Toc, section: string): React.ReactNode => (
-  <ul key={node.data.id}>
-    <li>
+const Item = ({
+  node,
+  selectedId,
+}: {
+  node: Toc;
+  selectedId: string;
+}): React.ReactNode => (
+  <ul className={styles.ul}>
+    <li className={styles.li}>
       <a
-        className={node.data.id === section ? "selected" : undefined}
+        className={node.data.id === selectedId ? "selected" : undefined}
         href={`#${node.data.id}`}
       >{`${node.value}`}</a>
-      {node.children.map((n) => createNode(n, section))}
+      {node.children.map((n) => (
+        <Item key={n.data.id} node={n} selectedId={selectedId} />
+      ))}
     </li>
     <style jsx>
       {`
-        ul {
-          margin: 0;
-          padding-top: 0px;
-          padding-bottom: 0px;
-          padding-right: 0px;
-          padding-left: 2rem;
-        }
-        li {
-          list-style-type: none;
-        }
         a {
           display: block;
           background-color: var(--color-gray-light);
@@ -44,12 +43,21 @@ const createNode = (node: Toc, section: string): React.ReactNode => (
   </ul>
 );
 
+const extractIdFromToc = (nodes: Toc[]): string[] =>
+  nodes.reduce<string[]>((acc, node) => {
+    acc.push(node.data.id);
+    acc.push(...extractIdFromToc(node.children));
+    return acc;
+  }, []);
+
 export default ({ tocs }: { tocs: Toc[] }) => {
   const selectedSectionId = useScrollSpy(extractIdFromToc(tocs));
 
   return (
     <nav>
-      {tocs.map((n) => createNode(n, selectedSectionId))}
+      {tocs.map((n) => (
+        <Item key={n.data.id} node={n} selectedId={selectedSectionId} />
+      ))}
       <style jsx>
         {`
           nav {

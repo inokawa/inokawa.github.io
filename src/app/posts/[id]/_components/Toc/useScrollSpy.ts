@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { throttle } from "../utils/timer";
+import { throttle } from "../../../../../utils/timer";
 
 export const useScrollSpy = (ids: string[]): string => {
   const [sectionId, setSectionId] = useState<string>("");

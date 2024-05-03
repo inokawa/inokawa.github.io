@@ -4,6 +4,7 @@ import path from "path";
 import { cache } from "react";
 
 const cachedReadFile = cache(fs.readFile);
+const cachedReaddir = cache(fs.readdir);
 
 export const readArticle = async (id: string): Promise<string> => {
   const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
@@ -14,7 +15,7 @@ export const readPosts = async (): Promise<
   { id: string; content: string }[]
 > => {
   const dirPath = path.join(process.cwd(), "./src/articles/posts");
-  const filenames = await fs.readdir(dirPath);
+  const filenames = await cachedReaddir(dirPath);
 
   return Promise.all(
     filenames.map(async (filename) => {

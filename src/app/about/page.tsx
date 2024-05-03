@@ -1,5 +1,5 @@
-import { readArticle } from "../../utils/article";
-import { md2React } from "../../utils/markdown";
+import { readArticle } from "../../server/article";
+import { md2React } from "../../server/markdown";
 
 export default async () => {
   const article = await readArticle("about");

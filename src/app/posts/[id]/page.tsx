@@ -2,8 +2,8 @@ import {
   md2React,
   extractFrontmatter,
   extractToc,
-} from "../../../utils/markdown";
-import { readArticle, readPosts } from "../../../utils/article";
+} from "../../../server/markdown";
+import { readArticle, readPosts } from "../../../server/article";
 import ArticleHeader from "./_components/ArticleHeader";
 import Toc from "./_components/Toc";
 import styles from "./page.module.css";
@@ -13,7 +13,6 @@ type Param = { id: string };
 export default async ({ params }: { params: Param }) => {
   const article = await readArticle(`posts/${params.id}`);
   const frontmatter = extractFrontmatter(article);
-
   const tocs = extractToc(article);
 
   return (

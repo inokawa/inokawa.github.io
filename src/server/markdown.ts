@@ -1,3 +1,4 @@
+import "server-only";
 import { unified } from "unified";
 import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
@@ -25,8 +26,7 @@ export const md2React = (mdText: string): ReactElement => {
       createElement,
     });
 
-  const data = processor().processSync(mdText);
-  return data.result as React.ReactElement;
+  return processor().processSync(mdText).result;
 };
 
 export type Toc = {
@@ -46,13 +46,6 @@ export const extractToc = (mdText: string): Toc[] => {
   const data = processor().runSync(node);
   return data as any as Toc[];
 };
-
-export const extractIdFromToc = (nodes: Toc[]): string[] =>
-  nodes.reduce<string[]>((acc, node) => {
-    acc.push(node.data.id);
-    acc.push(...extractIdFromToc(node.children));
-    return acc;
-  }, []);
 
 export type Frontmatter = { title: string; date: string; categories: string[] };
 
