@@ -10,7 +10,8 @@ import styles from "./page.module.css";
 
 type Param = { id: string };
 
-export default async ({ params }: { params: Param }) => {
+export default async (props: { params: Promise<Param> }) => {
+  const params = await props.params;
   const article = await readArticle(`posts/${params.id}`);
   const frontmatter = extractFrontmatter(article);
   const tocs = extractToc(article);
