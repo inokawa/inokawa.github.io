@@ -2,7 +2,7 @@ import Link from "next/link";
 import { readPosts } from "../../server/article";
 import { extractFrontmatter } from "../../server/markdown";
 
-export default async () => {
+export default async ({}: PageProps<"/posts">) => {
   const articles = await readPosts();
 
   return (

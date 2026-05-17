@@ -8,11 +8,9 @@ import ArticleHeader from "./_components/ArticleHeader";
 import Toc from "./_components/Toc";
 import styles from "./page.module.css";
 
-type Param = { id: string };
-
-export default async (props: { params: Promise<Param> }) => {
-  const params = await props.params;
-  const article = await readArticle(`posts/${params.id}`);
+export default async ({ params }: PageProps<"/posts/[id]">) => {
+  const { id } = await params;
+  const article = await readArticle(`posts/${id}`);
   const frontmatter = extractFrontmatter(article);
   const tocs = extractToc(article);
 
