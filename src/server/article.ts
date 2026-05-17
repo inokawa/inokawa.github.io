@@ -6,12 +6,12 @@ import { cache } from "react";
 const cachedReadFile = cache(fs.readFile);
 const cachedReaddir = cache(fs.readdir);
 
-export const readArticle = async (id: string): Promise<string> => {
+export const readArticle = cache(async (id: string): Promise<string> => {
   const filePath = path.join(process.cwd(), `./src/articles/${id}.md`);
   return cachedReadFile(filePath, "utf8");
-};
+});
 
-export const readPosts = async (): Promise<
+export const readPosts = cache(async (): Promise<
   { id: string; content: string }[]
 > => {
   const dirPath = path.join(process.cwd(), "./src/articles/posts");
@@ -27,4 +27,4 @@ export const readPosts = async (): Promise<
       };
     })
   );
-};
+});
