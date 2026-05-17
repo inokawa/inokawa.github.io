@@ -3,9 +3,8 @@ import "./global.css";
 import "highlight.js/styles/vs2015.css";
 import styles from "./layout.module.css";
 import { LinkTab } from "./_components/LinkTab";
-import { ReactNode } from "react";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html>
       <head>
