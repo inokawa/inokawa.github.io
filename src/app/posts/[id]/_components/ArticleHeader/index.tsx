@@ -1,4 +1,4 @@
-import { Frontmatter } from "../../../../../utils/markdown";
+import { Frontmatter } from "../../../../../server/markdown";
 import styles from "./index.module.css";
 
 export default ({ frontmatter }: { frontmatter: Frontmatter }) => {
