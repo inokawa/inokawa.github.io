@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/05bgj8nzew.ab.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","div",null,{"style":{"flex":1},"children":[["$","p","p-0",{"children":["$","a","a-0",{"href":"https://github.com/inokawa","children":"GitHub"}]}],"\n",["$","hr","hr-0",{}],"\n",["$","p","p-1",{"children":["The source code of this site is available ",["$","a","a-0",{"href":"https://github.com/inokawa/inokawa.github.io","children":"here"}],"."]}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iPrWXu9vmc5OUKnDj-IUj"}
+4:null
